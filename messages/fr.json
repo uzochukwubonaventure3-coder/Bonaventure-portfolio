@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "about": "À Propos",
+    "work": "Travail",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis Bonaventure",
+    "subtitle": "Développeur Fullstack & Spécialiste SEO",
+    "description": "Je crée des applications web rapides, évolutives et optimisées pour le SEO"
+  },
+  "about": {
+    "title": "À Propos de Moi",
+    "description": "Je suis un développeur fullstack passionné par la création d'expériences numériques exceptionnelles"
+  },
+  "work": {
+    "title": "Mon Travail",
+    "description": "Consultez certains de mes projets récents"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Réflexions sur le développement web et la technologie"
+  },
+  "contact": {
+    "title": "Me Contacter",
+    "description": "Travaillons ensemble",
+    "message": "N'hésitez pas à me contacter pour collaborer ou simplement dire bonjour"
+  },
+  "footer": {
+    "copyright": "© 2024 Bonaventure Chidalu. Tous droits réservés."
+  }
+}

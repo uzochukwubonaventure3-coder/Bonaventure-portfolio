@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  url         String?
+  date        String
+  description String   @db.Text
+  tags        String[] 
+  categories  String[]
+  imageUrl    String?
+  imageId     String?
+  liveUrl     String?
+  githubUrl   String?
+  featured    Boolean  @default(false)
+  published   Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String   @db.Text
+  content     String   @db.Text
+  coverUrl    String?
+  coverId     String?
+  category    String
+  tags        String[]
+  readTime    String?
+  published   Boolean  @default(false)
+  featured    Boolean  @default(false)
+  views       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Experience {
+  id        String   @id @default(cuid())
+  title     String
+  company   String
+  type      String
+  period    String
+  badge     String?
+  initials  String
+  color     String   @default("#F97316")
+  tags      String[]
+  bullets   String[]
+  order     Int      @default(0)
+  current   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  quote     String   @db.Text
+  name      String
+  title     String
+  avatarUrl String?
+  avatarId  String?
+  initials  String
+  featured  Boolean  @default(true)
+  approved  Boolean  @default(false)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  budget    String?
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  replied   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model SiteSettings {
+  id           String  @id @default(cuid())
+  key          String  @unique
+  value        String  @db.Text
+  updatedAt    DateTime @updatedAt
+}
+
+model TechSkill {
+  id       String @id @default(cuid())
+  name     String
+  icon     String
+  category String
+  order    Int    @default(0)
+}

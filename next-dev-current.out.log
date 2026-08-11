@@ -1,0 +1,32 @@
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 14.1s
+ ○ Compiling /favicon-16x16.png ...
+ ✓ Compiled /favicon-16x16.png in 4.5s (53 modules)
+ GET /favicon-16x16.png 308 in 5027ms
+ ○ Compiling /api/auth/login ...
+ ✓ Compiled /api/auth/me in 5.3s (159 modules)
+ ✓ Compiled (161 modules)
+ GET /api/auth/me 401 in 5262ms
+ POST /api/auth/login 500 in 6416ms
+ ✓ Compiled in 494ms (161 modules)
+ POST /api/auth/login 400 in 461ms
+ ✓ Compiled /favicon-16x16.png in 216ms (163 modules)
+ HEAD /favicon-16x16.png 308 in 418ms
+ GET /api/auth/me 401 in 70ms
+ POST /api/auth/login 400 in 41ms
+ POST /api/auth/login 400 in 26ms
+ POST /api/auth/login 500 in 45ms
+ POST /api/auth/login 500 in 49ms
+ GET /favicon-16x16.png 308 in 106ms
+ GET /api/auth/me 401 in 121ms
+ POST /api/auth/login 500 in 127ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 19.5s (590 modules)
+ POST /api/auth/login 404 in 21165ms
+ ✓ Compiled in 1668ms (236 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 29.5s (1417 modules)
+ GET / 200 in 31971ms

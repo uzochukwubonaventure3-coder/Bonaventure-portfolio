@@ -1,0 +1,817 @@
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 15.7s
+ ○ Compiling /api/auth/login ...
+ ✓ Compiled /api/auth/me in 13.3s (159 modules)
+ ✓ Compiled (161 modules)
+ GET /api/auth/me 401 in 14056ms
+prisma:error 
+Invalid `prisma.admin.findUnique()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ POST /api/auth/login 500 in 18116ms
+   Reload env: .env
+ ✓ Compiled in 13s (201 modules)
+ ○ Compiling /api/auth/login ...
+ ✓ Compiled /api/auth/login in 662ms (159 modules)
+prisma:error 
+Invalid `prisma.admin.findUnique()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ POST /api/auth/login 500 in 5828ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 83.3s (590 modules)
+prisma:error 
+Invalid `prisma.admin.findUnique()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ POST /api/auth/login 500 in 6342ms
+ ✓ Compiled in 3.2s (576 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 88507ms
+ GET /_next/static/css/app/layout.css?v=1780260821579 404 in 88553ms
+prisma:error 
+Invalid `prisma.admin.findUnique()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ POST /api/auth/login 500 in 185ms
+prisma:error 
+Invalid `prisma.admin.findUnique()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ POST /api/auth/login 500 in 187ms
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 4.2s (166 modules)
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 10.5s (1385 modules)
+ GET /admin/login 200 in 11534ms
+ ○ Compiling /api/auth/me ...
+ ✓ Compiled /api/auth/me in 816ms (762 modules)
+ GET /api/auth/me 401 in 993ms
+ GET /api/auth/me 401 in 32ms
+prisma:error 
+Invalid `prisma.admin.findUnique()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ POST /api/auth/login 500 in 325ms
+ ✓ Compiled in 3.1s (1268 modules)
+ ○ Compiling /api/auth/login ...
+ ✓ Compiled /api/auth/login in 10s (1152 modules)
+ POST /api/auth/login 500 in 15130ms
+ ✓ Compiled in 2.6s (1268 modules)
+ ○ Compiling /api/auth/login ...
+ ✓ Compiled /api/auth/login in 1037ms (1152 modules)
+ POST /api/auth/login 500 in 3016ms
+ POST /api/auth/login 500 in 1424ms
+ POST /api/auth/login 200 in 2300ms
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 3.2s (1787 modules)
+ ○ Compiling /api/testimonials ...
+ ✓ Compiled /api/testimonials in 775ms (1162 modules)
+ ✓ Compiled (1170 modules)
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 3054ms
+ GET /api/projects 500 in 3078ms
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 781ms
+ GET /api/projects 500 in 780ms
+ GET /api/experience 200 in 3880ms
+ GET /api/experience 200 in 783ms
+ GET /api/contact 200 in 4947ms
+ GET /api/testimonials?all=true 200 in 4985ms
+ GET /api/contact 200 in 696ms
+ GET /api/testimonials?all=true 200 in 830ms
+ ○ Compiling /admin/projects ...
+ ✓ Compiled /admin/projects in 4.6s (1867 modules)
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 102ms
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 39ms
+ ○ Compiling /admin/blog ...
+ ✓ Compiled /admin/blog in 6s (1917 modules)
+ ○ Compiling /api/posts ...
+ ✓ Compiled /api/posts in 1095ms (1233 modules)
+ GET /api/posts?all=true&limit=100 200 in 3030ms
+ GET /api/posts?all=true&limit=100 200 in 587ms
+ ○ Compiling /api/posts/[slug] ...
+ ✓ Compiled /api/posts/[slug] in 5.9s (1480 modules)
+ PUT /api/posts/real-time-tracking-laravel-websockets 200 in 16135ms
+ PUT /api/posts/real-time-tracking-laravel-websockets 200 in 23960ms
+ GET /api/posts?all=true&limit=100 200 in 1751ms
+ GET /api/posts?all=true&limit=100 200 in 971ms
+ ○ Compiling /admin/experience ...
+ ✓ Compiled /admin/experience in 4.3s (1392 modules)
+ ○ Compiling /api/experience ...
+ ✓ Compiled /api/experience in 1973ms (1222 modules)
+ GET /api/experience 500 in 10389ms
+ GET /api/experience 500 in 7058ms
+ ○ Compiling /api/posts ...
+ ✓ Compiled /api/posts in 1088ms (1224 modules)
+ GET /api/posts?all=true&limit=100 200 in 5608ms
+ GET /api/posts?all=true&limit=100 200 in 716ms
+ GET /api/experience 200 in 629ms
+ GET /api/experience 200 in 664ms
+ ○ Compiling /admin/testimonials ...
+ ✓ Compiled /admin/testimonials in 2.6s (1922 modules)
+ ○ Compiling /api/testimonials ...
+ ✓ Compiled /api/testimonials in 2.1s (1231 modules)
+ GET /api/testimonials?all=true 200 in 3364ms
+ GET /api/testimonials?all=true 200 in 761ms
+ ○ Compiling /admin/messages ...
+ ✓ Compiled /admin/messages in 2s (1928 modules)
+ ○ Compiling /api/contact ...
+ ✓ Compiled /api/contact in 1314ms (1233 modules)
+ GET /api/contact 200 in 2591ms
+ GET /api/contact 200 in 798ms
+ ○ Compiling /admin/settings ...
+ ✓ Compiled /admin/settings in 1544ms (1934 modules)
+ ○ Compiling /api/stats ...
+ ✓ Compiled /api/stats in 978ms (1235 modules)
+ GET /api/stats 200 in 2978ms
+ GET /api/stats 200 in 47ms
+ PUT /api/stats 200 in 1410ms
+ PUT /api/stats 200 in 10025ms
+ ○ Compiling /about ...
+ ✓ Compiled /about in 41.3s (1981 modules)
+ GET /about 200 in 50119ms
+ ✓ Compiled in 9.5s (733 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 19.5s (1557 modules)
+ ○ Compiling /api/github ...
+ ✓ Compiled /api/github in 1531ms (1296 modules)
+ ✓ Compiled (1299 modules)
+ GET /api/social?limit=6 500 in 15026ms
+ GET /api/github 200 in 15651ms
+ GET /api/github 200 in 157ms
+ GET /api/social?limit=6 500 in 1019ms
+ ○ Compiling /api/stats ...
+ ✓ Compiled /api/stats in 2s (1295 modules)
+ PUT /api/stats 200 in 2707ms
+ GET /api/github 200 in 201ms
+ GET /api/social?limit=6 500 in 2120ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /api/stats in 11.7s (2074 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 13078ms
+ PUT /api/stats 200 in 6378ms
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 3.1s (1297 modules)
+ ○ Compiling /api/contact ...
+ ✓ Compiled /api/contact in 2.3s (1301 modules)
+ ✓ Compiled (1309 modules)
+ GET /api/stats 200 in 85ms
+ GET /api/stats 200 in 72ms
+ GET /api/contact 200 in 7557ms
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 8629ms
+ GET /api/projects 500 in 8634ms
+ GET /api/contact 200 in 1048ms
+ GET /api/experience 200 in 8642ms
+ GET /api/testimonials?all=true 200 in 8641ms
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 129ms
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 697ms
+ GET /api/projects 500 in 842ms
+ GET /api/experience 200 in 853ms
+ GET /api/contact 200 in 989ms
+ GET /api/testimonials?all=true 200 in 1322ms
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 237ms
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 310ms
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 249ms
+ GET /api/experience 200 in 881ms
+ GET /api/contact 200 in 944ms
+ GET /api/testimonials?all=true 200 in 670ms
+ GET /api/testimonials?all=true 200 in 735ms
+ GET /api/experience 200 in 745ms
+ ○ Compiling /admin/experience ...
+ ✓ Compiled /admin/testimonials in 1408ms (1290 modules)
+ ✓ Compiled (1315 modules)
+ GET /api/contact 200 in 1320ms
+ GET /api/contact 200 in 717ms
+ GET /api/testimonials?all=true 200 in 714ms
+ GET /api/testimonials?all=true 200 in 602ms
+ GET /api/experience 200 in 738ms
+ GET /api/experience 200 in 693ms
+ ○ Compiling /admin/blog ...
+ ✓ Compiled /admin/blog in 3.8s (1321 modules)
+ ○ Compiling /api/posts ...
+ ✓ Compiled /api/posts in 827ms (1323 modules)
+ GET /api/posts?all=true&limit=100 200 in 2633ms
+ GET /api/posts?all=true&limit=100 200 in 670ms
+ ○ Compiling /api/posts/[slug] ...
+ ✓ Compiled /api/posts/[slug] in 2.3s (1546 modules)
+ PUT /api/posts/seo-2026-nigeria 200 in 1717ms
+ PUT /api/posts/seo-2026-nigeria 200 in 14738ms
+ PUT /api/posts/seo-2026-nigeria 200 in 16641ms
+ GET /api/posts?all=true&limit=100 200 in 762ms
+ GET /api/posts?all=true&limit=100 200 in 624ms
+ GET /api/posts?all=true&limit=100 200 in 619ms
+ ○ Compiling /api/upload ...
+ ✓ Compiled /api/upload in 2.5s (1548 modules)
+ POST /api/upload 200 in 9302ms
+ ○ Compiling /api/social ...
+ ✓ Compiled /api/posts/[slug] in 2.6s (1153 modules)
+ ✓ Compiled (1551 modules)
+ GET /api/social?limit=6 500 in 12830ms
+ PUT /api/posts/seo-2026-nigeria 200 in 12005ms
+ GET /api/github 200 in 13284ms
+ ○ Compiling /api/posts ...
+ ✓ Compiled /api/posts in 1605ms (1553 modules)
+ GET /api/posts?all=true&limit=100 200 in 2719ms
+ ○ Compiling /work ...
+ ✓ Compiled /work in 8s (2344 modules)
+ ○ Compiling /blog ...
+ ✓ Compiled /blog in 14.9s (2376 modules)
+ ○ Compiling /api/posts/tags ...
+ ✓ Compiled /api/posts/tags in 694ms (1578 modules)
+ GET /api/posts?featured=true&limit=3 200 in 1263ms
+ GET /api/posts?page=1&limit=12 200 in 1446ms
+ GET /api/posts/tags 200 in 1752ms
+ GET /api/posts?page=1&limit=12 200 in 614ms
+ GET /api/posts?featured=true&limit=3 200 in 635ms
+ GET /api/posts/tags 200 in 76ms
+ ○ Compiling /blog/[slug] ...
+ ✓ Compiled /blog/[slug] in 9.1s (1975 modules)
+ ○ Compiling /api/experience ...
+ ✓ Compiled /api/experience in 2.4s (1288 modules)
+ GET /api/experience 200 in 3380ms
+ GET /api/experience 200 in 742ms
+ ○ Compiling /admin/projects ...
+ ✓ Compiled /admin/projects in 1074ms (1292 modules)
+ ○ Compiling /api/projects ...
+ ✓ Compiled /api/projects in 1153ms (1296 modules)
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 1906ms
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 59ms
+ ○ Compiling / ...
+ ✓ Compiled / in 6.4s (1201 modules)
+ ○ Compiling /api/github ...
+ ✓ Compiled /api/github in 2.2s (1320 modules)
+ ✓ Compiled (1323 modules)
+ GET /api/github 200 in 9234ms
+ GET /api/social?limit=6 500 in 9450ms
+ GET /api/github 200 in 2534ms
+ GET /api/social?limit=6 500 in 764ms
+ ○ Compiling /about ...
+ ✓ Compiled /about in 3.4s (1199 modules)
+ ○ Compiling /api/posts ...
+ ✓ Compiled /api/posts in 5.2s (1228 modules)
+ ✓ Compiled (1320 modules)
+ GET /api/posts/tags 200 in 10140ms
+ GET /api/posts/tags 200 in 43ms
+ GET /api/posts?featured=true&limit=3 200 in 1310ms
+ GET /api/posts?page=1&limit=12 200 in 1421ms
+ GET /api/posts?page=1&limit=12 200 in 25866ms
+ GET /api/posts?featured=true&limit=3 200 in 26433ms
+ ○ Compiling /api/github ...
+ ✓ Compiled /api/github in 6.6s (1276 modules)
+ ✓ Compiled (1279 modules)
+ GET /api/social?limit=6 500 in 14051ms
+ GET /api/social?limit=6 500 in 827ms
+ GET /api/github 200 in 7040ms
+ GET /api/github 200 in 19916ms
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 7.9s (1174 modules)
+ GET /admin 200 in 10869ms
+ ○ Compiling /api/blog ...
+ ✓ Compiled /api/contact in 1647ms (1293 modules)
+ ✓ Compiled (1305 modules)
+ GET /api/auth/me 200 in 7057ms
+ GET /api/auth/me 200 in 104ms
+ GET /api/testimonials?all=true 200 in 10147ms
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 11042ms
+ GET /api/projects 500 in 11047ms
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 110ms
+ GET /api/projects 500 in 108ms
+ GET /api/testimonials?all=true 200 in 1651ms
+ GET /api/contact 200 in 13548ms
+ GET /api/contact 200 in 2158ms
+ GET /api/experience 200 in 17765ms
+ GET /api/experience 200 in 3047ms
+ ○ Compiling /api/social ...
+ ✓ Compiled /api/social in 660ms (1305 modules)
+ ✓ Compiled (1307 modules)
+ GET /api/github 200 in 3536ms
+ GET /api/social?limit=6 500 in 9260ms
+ GET /api/github 200 in 582ms
+ GET /api/social?limit=6 500 in 7745ms
+ GET / 200 in 4315ms
+ GET /api/social?limit=6 200 in 12375ms
+ GET /api/github 200 in 12642ms
+ GET /api/github 200 in 13049ms
+ GET /api/social?limit=6 200 in 36833ms
+ ○ Compiling /api/posts ...
+ ✓ Compiled /api/posts/tags in 4.1s (1290 modules)
+ ✓ Compiled (1292 modules)
+ GET /api/posts/tags 200 in 7379ms
+ GET /api/posts/tags 200 in 69ms
+ GET /api/posts?page=1&limit=12 500 in 15165ms
+ GET /api/posts?featured=true&limit=3 500 in 14557ms
+ GET /api/posts?featured=true&limit=3 500 in 7171ms
+ GET /api/posts?page=1&limit=12 500 in 7177ms
+ GET /api/posts?section=What+I%27m+Learning&page=1&limit=12 500 in 7177ms
+ GET /api/posts?page=1&limit=12 500 in 7091ms
+ ○ Compiling /admin/projects ...
+ ✓ Compiled /admin/projects in 4.8s (1320 modules)
+ ○ Compiling /api/projects ...
+ ✓ Compiled /api/projects in 1316ms (1324 modules)
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 3318ms
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 130ms
+ ○ Compiling /api/github ...
+ ✓ Compiled /api/github in 2.1s (1324 modules)
+ ✓ Compiled (1327 modules)
+ GET /api/github 200 in 5868ms
+ GET /api/github 200 in 230ms
+ GET /api/social?limit=6 500 in 13080ms
+ ○ Compiling /api/posts/tags ...
+ ✓ Compiled /api/posts/tags in 1583ms (1329 modules)
+ ✓ Compiled (1331 modules)
+ GET /api/posts/tags 200 in 6279ms
+ GET /api/posts/tags 200 in 102ms
+ GET /api/posts?page=1&limit=12 500 in 13382ms
+ GET /api/posts?featured=true&limit=3 500 in 13380ms
+ GET /api/social?limit=6 500 in 13056ms
+ GET /api/posts?page=1&limit=12 500 in 7175ms
+ GET /api/posts?featured=true&limit=3 500 in 7178ms
+ GET /api/posts?tag=Content+Strategy&page=1&limit=12 500 in 7188ms
+ GET /api/posts?page=1&limit=12 500 in 7100ms
+ GET /api/posts?tag=WebSockets&page=1&limit=12 500 in 7112ms
+ GET /api/posts?page=1&limit=12 500 in 7117ms
+ ○ Compiling /admin/blog ...
+ ✓ Compiled /admin/blog in 5.3s (1310 modules)
+ GET /api/posts?all=true&limit=100 500 in 7264ms
+ GET /api/posts?all=true&limit=100 500 in 7077ms
+ ○ Compiling /api/upload ...
+ ✓ Compiled /api/upload in 8.6s (1557 modules)
+ POST /api/upload 500 in 11089ms
+ POST /api/upload 500 in 203ms
+ GET /api/posts?section=Latest+Thoughts&page=1&limit=12 200 in 6005ms
+ GET /api/posts?page=1&limit=12 200 in 6702ms
+ ○ Compiling /api/github ...
+ ✓ Compiled /api/github in 4.5s (1305 modules)
+ ✓ Compiled (1308 modules)
+ GET /api/social?limit=6 200 in 13333ms
+ GET /api/social?limit=6 200 in 3670ms
+ GET /api/github 200 in 7952ms
+ GET /api/github 200 in 17368ms
+ ○ Compiling /about ...
+ ✓ Compiled /about in 1795ms (1311 modules)
+ GET /api/github 200 in 171ms
+ GET /api/github 200 in 199ms
+ GET /api/social?limit=6 200 in 8707ms
+ GET /api/social?limit=6 200 in 139748ms
+ ○ Compiling /api/posts/tags ...
+ ✓ Compiled /api/posts/tags in 1681ms (1304 modules)
+ ✓ Compiled (1306 modules)
+ GET /api/posts/tags 200 in 4664ms
+ GET /api/posts/tags 200 in 87ms
+ GET /api/posts?featured=true&limit=3 200 in 8154ms
+ GET /api/posts?featured=true&limit=3 200 in 7135ms
+ GET /api/posts?page=1&limit=12 200 in 17197ms
+ GET /api/posts?page=1&limit=12 200 in 545ms
+ ○ Compiling /api/social ...
+ ✓ Compiled /api/social in 999ms (1309 modules)
+ ✓ Compiled (1311 modules)
+ GET /api/social?limit=6 200 in 5177ms
+ GET /api/social?limit=6 200 in 1421ms
+ GET /api/github 200 in 7274ms
+ GET /api/github 200 in 5151ms
+ GET / 200 in 2148ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /api/social in 16.2s (814 modules)
+ ✓ Compiled (1309 modules)
+ GET /favicon.ico 308 in 18615ms
+ GET /favicon.ico 308 in 36ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 19.7s (2118 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 21138ms
+ GET / 200 in 14726ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 189ms
+ GET /api/github 200 in 296ms
+ GET /api/github 200 in 34ms
+ GET /api/social?limit=6 200 in 21090ms
+ GET /api/social?limit=6 200 in 1097ms
+ GET / 200 in 4678ms
+ GET /favicon.ico 308 in 331ms
+ GET /api/github 200 in 2006ms
+ GET /api/social?limit=6 200 in 2418ms
+ GET /api/github 200 in 2469ms
+ GET /api/social?limit=6 200 in 2539ms
+ GET / 200 in 414ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 119ms
+ GET /api/github 200 in 87ms
+ GET /api/github 200 in 39ms
+ GET /api/social?limit=6 200 in 1761ms
+ GET /api/social?limit=6 200 in 1264ms
+ GET / 200 in 497ms
+ GET /favicon.ico 308 in 54ms
+ GET /api/github 200 in 3080ms
+ GET /api/github 200 in 3754ms
+ GET /api/social?limit=6 200 in 5378ms
+ GET /api/social?limit=6 200 in 5471ms
+ GET / 200 in 254ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 123ms
+ GET /api/github 200 in 144ms
+ GET /api/github 200 in 71ms
+ GET /api/social?limit=6 200 in 1955ms
+ GET /api/social?limit=6 200 in 1258ms
+ GET /api/github 200 in 4168ms
+ GET /api/social?limit=6 200 in 10689ms
+ GET / 200 in 430ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 270ms
+ GET /api/github 200 in 373ms
+ GET /api/github 200 in 120ms
+ GET /api/social?limit=6 200 in 2295ms
+ GET /api/social?limit=6 200 in 626ms
+ GET / 200 in 410ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 87ms
+ GET /api/github 200 in 193ms
+ GET /api/github 200 in 166ms
+ GET / 200 in 437ms
+ GET /favicon.ico 308 in 146ms
+ GET /api/social?limit=6 200 in 4901ms
+ GET /api/github 200 in 5093ms
+ GET /api/social?limit=6 200 in 5020ms
+ GET /api/github 200 in 5029ms
+ GET / 200 in 313ms
+ GET /api/social?limit=6 200 in 18894ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 128ms
+ GET /api/github 200 in 2495ms
+ GET /api/social?limit=6 200 in 3805ms
+ GET /api/github 200 in 190ms
+ GET /api/social?limit=6 500 in 7698ms
+ GET / 200 in 218ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 90ms
+ GET / 200 in 717ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 262ms
+ GET /api/github 200 in 525ms
+ GET /api/github 200 in 561ms
+ GET / 200 in 202ms
+ GET /api/social?limit=6 200 in 2962ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 52ms
+ GET /api/github 200 in 198ms
+ GET /api/github 200 in 99ms
+ GET /api/social?limit=6 200 in 8672ms
+ GET /api/social?limit=6 200 in 745ms
+ GET / 200 in 261ms
+ GET /api/github 200 in 124ms
+ GET /api/github 200 in 67ms
+ GET /api/social?limit=6 200 in 3881ms
+ GET /api/social?limit=6 200 in 531ms
+ GET / 200 in 379ms
+ GET /api/github 200 in 3254ms
+ GET /api/github 200 in 79ms
+ GET /api/social?limit=6 200 in 5468ms
+ GET /api/social?limit=6 200 in 699ms
+ GET / 200 in 181ms
+ GET /favicon.ico 308 in 121ms
+ GET /api/social?limit=6 200 in 1297ms
+ GET /api/social?limit=6 200 in 1182ms
+ GET /api/github 200 in 1543ms
+ GET /api/github 200 in 1973ms
+ GET / 200 in 388ms
+ GET /api/github 200 in 234ms
+ GET /api/github 200 in 100ms
+ GET /api/social?limit=6 200 in 1147ms
+ GET /api/social?limit=6 200 in 743ms
+ ○ Compiling /admin/experience ...
+ ✓ Compiled /admin/experience in 13s (790 modules)
+ GET /admin/blog 200 in 5853ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 5.7s (820 modules)
+ GET /favicon.ico 308 in 8625ms
+ ○ Compiling /api/auth/me ...
+ ✓ Compiled /api/posts in 4.8s (918 modules)
+ ✓ Compiled (1314 modules)
+ GET /api/auth/me 200 in 15096ms
+ GET /api/auth/me 200 in 15101ms
+ GET /api/posts?all=true&limit=100 200 in 37071ms
+ GET /api/posts?all=true&limit=100 200 in 38393ms
+ ○ Compiling /admin/settings ...
+ ✓ Compiled /admin/settings in 3.5s (1312 modules)
+ ○ Compiling /api/stats ...
+ ✓ Compiled /api/stats in 2.5s (1314 modules)
+ GET /api/stats 200 in 5799ms
+ GET /api/stats 200 in 7254ms
+ ○ Compiling /admin/experience ...
+ ✓ Compiled /admin/experience in 1777ms (1310 modules)
+ GET /admin/experience 200 in 3148ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /api/experience in 5s (1312 modules)
+ ✓ Compiled (1316 modules)
+ GET /api/auth/me 200 in 9893ms
+ GET /api/auth/me 200 in 10044ms
+ GET /favicon.ico 308 in 10928ms
+ GET /api/experience 500 in 20706ms
+ GET /api/experience 500 in 21023ms
+ GET /admin/experience 200 in 988ms
+ GET /api/auth/me 200 in 243ms
+ GET /api/auth/me 200 in 85ms
+ GET /api/experience 500 in 9338ms
+ GET /api/experience 500 in 7088ms
+ ○ Compiling /api/github ...
+ ✓ Compiled /api/github in 3s (1296 modules)
+ ✓ Compiled (1299 modules)
+ GET /api/github 200 in 8886ms
+ GET /admin/experience 200 in 526ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 954ms (1301 modules)
+ GET /api/auth/me 200 in 502ms
+ GET /api/auth/me 200 in 396ms
+ GET /favicon.ico 308 in 1282ms
+ GET /api/social?limit=6 500 in 15990ms
+ GET /api/experience 500 in 7556ms
+ GET /api/experience 500 in 7559ms
+ ○ Compiling /admin/messages ...
+ ✓ Compiled /admin/messages in 4.2s (1307 modules)
+ ○ Compiling /api/contact ...
+ ✓ Compiled /api/contact in 1661ms (1309 modules)
+ GET /api/contact 500 in 9474ms
+ GET /api/contact 500 in 9564ms
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 1426ms (1288 modules)
+ ○ Compiling /api/blog ...
+ ✓ Compiled /api/blog in 1964ms (1292 modules)
+ ✓ Compiled (1296 modules)
+ GET /api/contact 500 in 16739ms
+ GET /api/testimonials?all=true 500 in 16749ms
+ GET /api/experience 500 in 16760ms
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 17285ms
+ GET /api/projects 500 in 17294ms
+ GET /api/projects 500 in 17278ms
+prisma:error 
+Invalid `prisma.blogPost.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/blog?all=true 500 in 589ms
+ GET /api/experience 500 in 7612ms
+ GET /api/testimonials?all=true 500 in 7619ms
+ GET /api/contact 500 in 7121ms
+ ○ Compiling /admin/projects ...
+ ✓ Compiled /admin/projects in 1206ms (1311 modules)
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 141ms
+prisma:error 
+Invalid `prisma.project.findMany()` invocation:
+
+
+Can't reach database server at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`
+
+Please make sure your database server is running at `db.hfxqbhflzfycnrluiwvg.supabase.co:5432`.
+ GET /api/projects 500 in 88ms
+ ○ Compiling /admin/blog ...
+ ✓ Compiled /admin/blog in 2.5s (1309 modules)
+ ○ Compiling /api/posts ...
+ ✓ Compiled /api/posts in 1733ms (1311 modules)
+ GET /api/posts?all=true&limit=100 500 in 9445ms
+ GET /api/posts?all=true&limit=100 500 in 9466ms
+ GET /admin/blog 200 in 599ms
+ ○ Compiling /api/auth/me ...
+ ✓ Compiled /api/auth/me in 1428ms (1295 modules)
+ GET /api/auth/me 200 in 2476ms
+ GET /api/auth/me 200 in 73ms
+ GET /api/posts?all=true&limit=100 500 in 9495ms
+ GET /api/posts?all=true&limit=100 500 in 7084ms
+ ○ Compiling /api/social ...
+ ✓ Compiled /api/social in 1570ms (805 modules)
+ ✓ Compiled (1296 modules)
+ GET /api/github 200 in 4078ms
+ GET /api/social?limit=6 500 in 11246ms
+ GET /api/github 200 in 237ms
+ GET /api/social?limit=6 500 in 7293ms
+ GET /api/github 200 in 197ms
+ GET /api/social?limit=6 500 in 7232ms
+ GET /api/github 200 in 195ms
+ GET /api/social?limit=6 500 in 7244ms
+ GET /api/github 200 in 196ms
+ GET /api/social?limit=6 500 in 7245ms
+ GET /api/github 200 in 156ms
+ GET /api/social?limit=6 500 in 7139ms
+ GET /api/github 200 in 273ms
+ GET /api/social?limit=6 500 in 7317ms
+ GET /api/github 200 in 139ms
+ GET /api/social?limit=6 500 in 7102ms
+ GET /api/github 200 in 424ms
+ GET /api/social?limit=6 500 in 7274ms
+ GET /api/github 200 in 157ms
+ GET /api/social?limit=6 500 in 7111ms
+ GET /api/github 200 in 206ms
+ GET /api/social?limit=6 500 in 7156ms
+ GET /api/github 200 in 201ms
+ GET /api/social?limit=6 500 in 7212ms
+ GET /api/github 200 in 220ms
+ GET /api/social?limit=6 500 in 7263ms
+ GET /api/github 200 in 155ms
+ GET /api/social?limit=6 500 in 7112ms
+ GET /api/github 200 in 203ms
+ GET /api/social?limit=6 500 in 7260ms
+ GET /api/github 200 in 220ms
+ GET /api/social?limit=6 500 in 7179ms
+ GET /api/github 200 in 289ms
+ GET /api/social?limit=6 500 in 7279ms
+ GET /api/github 200 in 452ms
+ GET /api/social?limit=6 500 in 7509ms
+ GET /api/github 200 in 1328ms
+ GET /api/social?limit=6 500 in 8139ms
+ GET /api/github 200 in 323ms
+ GET /api/social?limit=6 500 in 7337ms
+ GET /api/github 200 in 13116ms
+ GET /api/social?limit=6 500 in 20119ms
+ GET /api/github 200 in 249ms
+ GET /api/social?limit=6 500 in 7283ms

@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "about": "About",
+    "work": "Work",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Bonaventure",
+    "subtitle": "Fullstack Developer & SEO Specialist",
+    "description": "I build fast, scalable, and SEO-optimized web applications"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm a fullstack developer passionate about creating exceptional digital experiences"
+  },
+  "work": {
+    "title": "My Work",
+    "description": "Check out some of my recent projects"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Thoughts on web development and technology"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "Let's work together",
+    "message": "Feel free to reach out for collaboration or just a friendly hello"
+  },
+  "footer": {
+    "copyright": "© 2026 Bonaventure Chidalu. All rights reserved."
+  }
+}

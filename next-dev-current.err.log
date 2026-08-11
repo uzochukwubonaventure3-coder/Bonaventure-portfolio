@@ -1,0 +1,152 @@
+SyntaxError: Expected property name or '}' in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (node:internal/deps/undici/undici:5880:19)
+    at successSteps (node:internal/deps/undici/undici:5861:27)
+    at fullyReadBody (node:internal/deps/undici/undici:4753:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async consumeBody (node:internal/deps/undici/undici:5870:7)
+    at async POST (webpack-internal:///(rsc)/./app/api/auth/login/route.ts:16:37)
+    at async C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:53446
+    at async e_.execute (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:44747)
+    at async e_.handle (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:54700)
+    at async doRender (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\base-server.js:1377:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\base-server.js:1599:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\base-server.js:1507:28)
+    at async DevServer.renderPageComponent (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\lib\start-server.js:141:13)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\User\Desktop\precious-portfolio\.next\server\app\api\auth\me'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/favicon-16x16.png/route' in C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\User\Desktop\precious-portfolio\.next\server\app\favicon-16x16.png\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/favicon-16x16.png/route' in 'C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/favicon-16x16.png/route (expected C:\Users\User\Desktop\precious-portfolio\.next\server\app\favicon-16x16.png\route.js)
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\flight-client-entry-plugin.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\flight-client-entry-plugin.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack-config.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at resolve commonjs C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/auth/me/route' in C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\User\Desktop\precious-portfolio\.next\server\app\api\auth\me\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/auth/me/route' in 'C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/auth/me/route (expected C:\Users\User\Desktop\precious-portfolio\.next\server\app\api\auth\me\route.js)
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\flight-client-entry-plugin.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\flight-client-entry-plugin.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack-config.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at resolve commonjs C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\User\Desktop\precious-portfolio\.next\server\app\favicon-16x16.png'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/favicon-16x16.png/route' in C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\User\Desktop\precious-portfolio\.next\server\app\favicon-16x16.png\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/favicon-16x16.png/route' in 'C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/favicon-16x16.png/route (expected C:\Users\User\Desktop\precious-portfolio\.next\server\app\favicon-16x16.png\route.js)
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\entries.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\entries.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack-config.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at resolve commonjs C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/auth/me/route' in C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\User\Desktop\precious-portfolio\.next\server\app\api\auth\me\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/auth/me/route' in 'C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/auth/me/route (expected C:\Users\User\Desktop\precious-portfolio\.next\server\app\api\auth\me\route.js)
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\entries.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\entries.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack-config.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at file C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at resolve commonjs C:\Users\User\Desktop\precious-portfolio\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js

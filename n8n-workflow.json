@@ -1,0 +1,301 @@
+{
+  "name": "BC Portfolio — Social Sync Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "twitter-webhook",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "node-twitter-trigger",
+      "name": "Twitter Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "notes": "Set this URL in Twitter Developer Portal → Account Activity API → Webhooks. URL: https://YOUR-N8N-URL/webhook/twitter-webhook"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "linkedin-webhook",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "node-linkedin-trigger",
+      "name": "LinkedIn Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 500],
+      "notes": "LinkedIn Partner API sends events here. URL: https://YOUR-N8N-URL/webhook/linkedin-webhook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.headers['x-twitter-webhooks-signature'] }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "node-twitter-validate",
+      "name": "Validate Twitter Signature",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "notes": "Only process if Twitter HMAC-SHA256 signature is present"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.headers['x-li-signature'] }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "node-linkedin-validate",
+      "name": "Validate LinkedIn Signature",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format Twitter payload into unified schema\nconst body = $json.body;\nconst tweets = body.tweet_create_events || [];\nconst results = [];\n\nfor (const tweet of tweets) {\n  // Skip retweets\n  if (tweet.retweeted_status) continue;\n  \n  const media = (tweet.extended_entities?.media || tweet.entities?.media || [])\n    .filter(m => m.type === 'photo')\n    .map(m => m.media_url_https);\n  \n  results.push({\n    platform: 'twitter',\n    external_id: tweet.id_str,\n    content: tweet.full_text || tweet.text || '',\n    external_url: `https://twitter.com/i/web/status/${tweet.id_str}`,\n    media_urls: media,\n    likes: tweet.favorite_count || 0,\n    reposts: tweet.retweet_count || 0,\n    replies: tweet.reply_count || 0,\n    published_at: new Date(tweet.created_at).toISOString(),\n    raw_payload: tweet\n  });\n}\n\nreturn results;"
+      },
+      "id": "node-twitter-format",
+      "name": "Format Twitter Post",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format LinkedIn payload into unified schema\nconst body = $json.body;\nconst events = body.events || [body];\nconst results = [];\n\nfor (const event of events) {\n  const eventType = event.type || event['com.linkedin.eventType'] || '';\n  if (!eventType.includes('SHARE') && !eventType.includes('POST') && \n      !eventType.includes('share') && !eventType.includes('post')) continue;\n  \n  const urn = event.activity || event.id || event.urn || '';\n  const externalId = urn.split(':').pop() || urn;\n  if (!externalId) continue;\n  \n  const shareContent = event.specificContent?.['com.linkedin.ugc.ShareContent'] || {};\n  const text = shareContent.shareCommentary?.text || \n               shareContent.text || \n               event.commentary || \n               event.text?.text || '';\n  \n  if (!text) continue;\n  \n  results.push({\n    platform: 'linkedin',\n    external_id: externalId,\n    content: text,\n    external_url: `https://www.linkedin.com/feed/update/${urn}`,\n    media_urls: [],\n    likes: event.socialCounts?.numLikes || 0,\n    reposts: event.socialCounts?.numShares || 0,\n    replies: event.socialCounts?.numComments || 0,\n    published_at: event.created?.time ? new Date(event.created.time).toISOString() : new Date().toISOString(),\n    raw_payload: event\n  });\n}\n\nreturn results;"
+      },
+      "id": "node-linkedin-format",
+      "name": "Format LinkedIn Post",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 500]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id FROM social_posts WHERE platform = '{{ $json.platform }}' AND external_id = '{{ $json.external_id }}' LIMIT 1",
+        "options": {}
+      },
+      "id": "node-dedup-check",
+      "name": "Check Duplicate",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [900, 400],
+      "credentials": { "postgres": { "id": "supabase-postgres", "name": "Supabase PostgreSQL" } },
+      "notes": "Connect to Supabase via direct Postgres URL (Settings → Database → Connection string)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.length }}",
+              "operation": "equal",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "node-dedup-filter",
+      "name": "Is New Post?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1100, 400],
+      "notes": "Only continue if no existing record (not a duplicate)"
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "complete",
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "content": "You are an AI enrichment engine for a developer portfolio. Given content, return ONLY a JSON object with: summary (1 sentence max 200 chars), tags (array of 3-6 technical strings), category (one of: AI, Software Engineering, Backend, Frontend, Next.js, Automation, DevOps, Machine Learning, Database, Security, Career, General), seo_desc (max 155 chars). No markdown, no explanation.",
+              "role": "system"
+            },
+            {
+              "content": "=Platform: {{ $json.platform }}\n\nContent: {{ $json.content }}",
+              "role": "user"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 300,
+          "temperature": 0.3
+        }
+      },
+      "id": "node-ai-enrich",
+      "name": "AI Enrichment",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1,
+      "position": [1320, 400],
+      "credentials": { "openAiApi": { "id": "openai-key", "name": "OpenAI" } }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse OpenAI response and merge with original post data\nconst post = $('Is New Post?').item.json;\nconst aiRaw = $json.message?.content || '{}';\n\nlet ai = {};\ntry {\n  const clean = aiRaw.replace(/```json|```/g, '').trim();\n  ai = JSON.parse(clean);\n} catch(e) {\n  ai = { summary: post.content.slice(0, 200), tags: [], category: 'General', seo_desc: post.content.slice(0, 155) };\n}\n\n// Calculate reading time\nconst words = post.content.trim().split(/\\s+/).length;\nconst reading_time = Math.max(1, Math.ceil(words / 200));\n\nreturn [{\n  ...post,\n  ai_summary: ai.summary || post.content.slice(0, 200),\n  ai_tags: Array.isArray(ai.tags) ? ai.tags : [],\n  ai_category: ai.category || 'General',\n  ai_seo_desc: ai.seo_desc || post.content.slice(0, 155),\n  reading_time,\n  hidden: false\n}];"
+      },
+      "id": "node-merge-ai",
+      "name": "Merge AI Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1540, 400]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "schema": "public",
+        "table": "social_posts",
+        "columns": "platform,external_id,content,external_url,media_urls,likes,reposts,replies,published_at,raw_payload,ai_summary,ai_tags,ai_category,ai_seo_desc,reading_time,hidden",
+        "options": {
+          "conflictAction": "ignore"
+        }
+      },
+      "id": "node-supabase-insert",
+      "name": "Save to Supabase",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1760, 400],
+      "credentials": { "postgres": { "id": "supabase-postgres", "name": "Supabase PostgreSQL" } }
+    },
+    {
+      "parameters": {
+        "url": "={{ $env.PORTFOLIO_URL }}/api/refresh",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.WEBHOOK_SECRET_TOKEN }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "trigger", "value": "social_sync" },
+            { "name": "platform", "value": "={{ $json.platform }}" }
+          ]
+        },
+        "options": { "timeout": 10000 }
+      },
+      "id": "node-portfolio-refresh",
+      "name": "Trigger Portfolio Refresh",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1980, 400]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "schema": "public",
+        "table": "webhook_logs",
+        "columns": "platform,event_id,status,payload,error",
+        "options": {}
+      },
+      "id": "node-log-duplicate",
+      "name": "Log Duplicate",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [1320, 600],
+      "credentials": { "postgres": { "id": "supabase-postgres", "name": "Supabase PostgreSQL" } }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"ok\": true, \"processed\": 1 }"
+      },
+      "id": "node-respond-ok",
+      "name": "Respond 200 OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [2200, 400]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"ok\": true, \"duplicate\": true }",
+        "options": { "responseCode": 200 }
+      },
+      "id": "node-respond-dup",
+      "name": "Respond Duplicate",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1540, 600]
+    }
+  ],
+  "connections": {
+    "Twitter Webhook Trigger":       { "main": [[{ "node": "Validate Twitter Signature", "type": "main", "index": 0 }]] },
+    "LinkedIn Webhook Trigger":      { "main": [[{ "node": "Validate LinkedIn Signature", "type": "main", "index": 0 }]] },
+    "Validate Twitter Signature":    { "main": [[{ "node": "Format Twitter Post", "type": "main", "index": 0 }], []] },
+    "Validate LinkedIn Signature":   { "main": [[{ "node": "Format LinkedIn Post", "type": "main", "index": 0 }], []] },
+    "Format Twitter Post":           { "main": [[{ "node": "Check Duplicate", "type": "main", "index": 0 }]] },
+    "Format LinkedIn Post":          { "main": [[{ "node": "Check Duplicate", "type": "main", "index": 0 }]] },
+    "Check Duplicate":               { "main": [[{ "node": "Is New Post?", "type": "main", "index": 0 }]] },
+    "Is New Post?":                  { "main": [[{ "node": "AI Enrichment", "type": "main", "index": 0 }], [{ "node": "Log Duplicate", "type": "main", "index": 0 }]] },
+    "AI Enrichment":                 { "main": [[{ "node": "Merge AI Data", "type": "main", "index": 0 }]] },
+    "Merge AI Data":                 { "main": [[{ "node": "Save to Supabase", "type": "main", "index": 0 }]] },
+    "Save to Supabase":              { "main": [[{ "node": "Trigger Portfolio Refresh", "type": "main", "index": 0 }]] },
+    "Trigger Portfolio Refresh":     { "main": [[{ "node": "Respond 200 OK", "type": "main", "index": 0 }]] },
+    "Log Duplicate":                 { "main": [[{ "node": "Respond Duplicate", "type": "main", "index": 0 }]] }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "bc-portfolio-automation"
+  },
+  "tags": ["portfolio", "automation", "social-sync"],
+  "__readme__": {
+    "setup_steps": [
+      "1. Import this JSON into n8n (Workflows → Import from File)",
+      "2. Create Supabase PostgreSQL credential: Settings → Credentials → New → Postgres. Use your Supabase direct connection URL.",
+      "3. Create OpenAI credential: Settings → Credentials → New → OpenAI API.",
+      "4. Set environment variables in n8n Settings → Variables: PORTFOLIO_URL, WEBHOOK_SECRET_TOKEN",
+      "5. Activate the workflow",
+      "6. Copy the Twitter webhook URL and register it in Twitter Developer Portal → Account Activity API",
+      "7. Copy the LinkedIn webhook URL and register it in LinkedIn Marketing API → Event Subscriptions",
+      "8. Test by posting a tweet — it should appear in your portfolio within seconds"
+    ],
+    "environment_variables": {
+      "PORTFOLIO_URL": "https://your-portfolio-domain.com",
+      "WEBHOOK_SECRET_TOKEN": "same-value-as-WEBHOOK_SECRET_TOKEN-in-portfolio-env"
+    },
+    "twitter_setup": {
+      "portal": "https://developer.twitter.com/en/portal/projects",
+      "steps": [
+        "Create App with Elevated access",
+        "Enable Account Activity API (requires Elevated access)",
+        "Add webhook URL: YOUR-N8N-URL/webhook/twitter-webhook",
+        "Subscribe to tweet_create_events, favorite_events"
+      ]
+    },
+    "linkedin_setup": {
+      "portal": "https://developer.linkedin.com/",
+      "steps": [
+        "Create app and request Marketing Developer Platform access",
+        "Add webhook URL: YOUR-N8N-URL/webhook/linkedin-webhook",
+        "Subscribe to SHARE_CREATE and UGC_POST_CREATE events",
+        "Verify webhook with hub.challenge handshake (handled automatically)"
+      ]
+    }
+  }
+}
