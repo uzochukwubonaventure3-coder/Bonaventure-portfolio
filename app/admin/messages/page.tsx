@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MailOpen, Trash2, Loader2, ExternalLink } from 'lucide-react';
+import { FaEnvelope as Mail, FaEnvelopeOpen as MailOpen, FaTrash as Trash2, FaSpinner as Loader2, FaArrowUpRightFromSquare as ExternalLink } from 'react-icons/fa6';
 import { formatDistanceToNow } from 'date-fns';
 import toast from 'react-hot-toast';
 

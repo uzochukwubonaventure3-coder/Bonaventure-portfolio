@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ChevronUp, ChevronDown } from 'lucide-react';
+import { FaChevronUp as ChevronUp, FaChevronDown as ChevronDown } from 'react-icons/fa6';
 import { EXPERIENCE } from '@/lib/data';
 
 export default function Experience() {

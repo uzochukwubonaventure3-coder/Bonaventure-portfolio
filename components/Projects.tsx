@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { FaArrowRight as ArrowRight, FaArrowUpRightFromSquare as ExternalLink } from 'react-icons/fa6';
 import Link from 'next/link';
 import { PROJECTS } from '@/lib/data';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
+import { FaLocationDot as MapPin } from 'react-icons/fa6';
 import { FOOTER_LINKS } from '@/lib/data';
 
 export default function Footer() {
@@ -27,13 +27,16 @@ export default function Footer() {
               <p className="text-[10px] uppercase tracking-widest text-[#444] mb-4">{category}</p>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
-                    <Link
-                      href="#"
-                      className="text-sm text-[#666] hover:text-[#F97316] transition-colors"
-                    >
-                      {link}
-                    </Link>
+                  <li key={link.label}>
+                    {link.href.startsWith('http') || link.href.startsWith('mailto:') ? (
+                      <a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="text-sm text-[#666] hover:text-[#F97316] transition-colors">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="text-sm text-[#666] hover:text-[#F97316] transition-colors">
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -50,7 +53,7 @@ export default function Footer() {
             <a href="mailto:abonaventure@gmail.com" className="text-[#F97316] font-semibold hover:underline">
               let me know
             </a>
-            . Your feedback helps me grow! 🙏
+            . Your feedback helps me grow.
           </p>
         </div>
       </div>

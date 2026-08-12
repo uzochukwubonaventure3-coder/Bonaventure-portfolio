@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Save, Loader2, Eye, EyeOff } from 'lucide-react';
+import { FaFloppyDisk as Save, FaSpinner as Loader2, FaEye as Eye, FaEyeSlash as EyeOff } from 'react-icons/fa6';
 import toast from 'react-hot-toast';
 import ImageUpload from '@/components/admin/ImageUpload';
 

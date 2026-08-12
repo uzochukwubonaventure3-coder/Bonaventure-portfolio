@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
+import { FaArrowUp as ArrowUp } from 'react-icons/fa6';
 
 export function BackToTop() {
   const [visible, setVisible] = useState(false);

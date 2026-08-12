@@ -2,7 +2,9 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowUpRight, ExternalLink } from 'lucide-react';
+import { FaArrowUpRightFromSquare as ArrowUpRight, FaBolt, FaCode, FaGem, FaLocationDot, FaLock, FaRobot, FaWandMagicSparkles } from 'react-icons/fa6';
+import { FaFigma, FaGithub } from 'react-icons/fa';
+import { SiNotion, SiPostman } from 'react-icons/si';
 import Link from 'next/link';
 
 const MARQUEE_TECH = [
@@ -12,27 +14,27 @@ const MARQUEE_TECH = [
 ];
 
 const TOOLS = [
-  { name: 'VS Code', icon: '💙', color: '#007ACC' },
-  { name: 'Kiro', icon: '🤖', color: '#F97316' },
-  { name: 'Figma', icon: '🎨', color: '#F24E1E' },
-  { name: 'Postman', icon: '🔶', color: '#FF6C37' },
-  { name: 'GitHub', icon: '⬛', color: '#fff' },
-  { name: 'Notion', icon: '📝', color: '#fff' },
+  { name: 'VS Code', icon: FaCode, color: '#007ACC' },
+  { name: 'Kiro', icon: FaRobot, color: '#F97316' },
+  { name: 'Figma', icon: FaFigma, color: '#F24E1E' },
+  { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
+  { name: 'GitHub', icon: FaGithub, color: '#fff' },
+  { name: 'Notion', icon: SiNotion, color: '#fff' },
 ];
 
 const WHAT_YOU_GET = [
-  { icon: '✦', label: 'Pixel-perfect UI' },
-  { icon: '⚡', label: 'Fast delivery' },
-  { icon: '🔒', label: 'Secure & scalable' },
-  { icon: '📈', label: 'SEO optimized' },
+  { icon: FaWandMagicSparkles, label: 'Pixel-perfect UI' },
+  { icon: FaBolt, label: 'Fast delivery' },
+  { icon: FaLock, label: 'Secure & scalable' },
+  { icon: ArrowUpRight, label: 'SEO optimized' },
 ];
 
 const CITIES = [
-  { name: 'Abuja, NG', flag: '🇳🇬', x: 25, y: 68, active: true },
-  { name: 'London', flag: '🇬🇧', x: 44, y: 32 },
-  { name: 'New York', flag: '🇺🇸', x: 22, y: 35 },
-  { name: 'Dubai', flag: '🇦🇪', x: 63, y: 45 },
-  { name: 'Toronto', flag: '🇨🇦', x: 18, y: 30 },
+  { name: 'Abuja, NG', x: 25, y: 68, active: true },
+  { name: 'London', x: 44, y: 32 },
+  { name: 'New York', x: 22, y: 35 },
+  { name: 'Dubai', x: 63, y: 45 },
+  { name: 'Toronto', x: 18, y: 30 },
 ];
 
 export default function BentoGrid() {
@@ -61,8 +63,8 @@ export default function BentoGrid() {
           className="bento-card flex flex-col items-center justify-center text-center min-h-[280px]"
         >
           {/* Robot mini avatar */}
-          <div className="w-24 h-24 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center text-5xl mb-6">
-            🤖
+          <div className="w-24 h-24 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center mb-6">
+            <FaRobot size={42} className="text-[#F97316]" aria-label="Developer assistant" />
           </div>
           <p className="text-[11px] uppercase tracking-[0.2em] text-[#555] mb-3">Let&apos;s Build Together</p>
           <h3 className="text-xl font-bold text-white leading-tight mb-4">
@@ -115,14 +117,17 @@ export default function BentoGrid() {
           className="bento-card"
         >
           <div className="grid grid-cols-3 gap-4 mb-4">
-            {TOOLS.map((tool) => (
+            {TOOLS.map((tool) => {
+              const ToolIcon = tool.icon;
+              return (
               <div key={tool.name} className="flex flex-col items-center gap-2">
-                <div className="w-12 h-12 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center text-2xl">
-                  {tool.icon}
+                <div className="w-12 h-12 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center">
+                  <ToolIcon size={22} style={{ color: tool.color }} aria-label={tool.name} />
                 </div>
                 <span className="text-[10px] text-[#666]">{tool.name}</span>
               </div>
-            ))}
+              );
+            })}
           </div>
           <div className="border-t border-[#1E1E1E] pt-3 mt-2">
             <p className="text-[10px] uppercase tracking-widest text-[#555] mb-1">Uses</p>
@@ -145,16 +150,19 @@ export default function BentoGrid() {
             deployed & scaling
           </h3>
           <div className="space-y-3 mb-4">
-            {WHAT_YOU_GET.map((item) => (
+            {WHAT_YOU_GET.map((item) => {
+              const ItemIcon = item.icon;
+              return (
               <div key={item.label} className="flex items-center gap-3 text-sm text-[#888]">
-                <span className="text-base w-5">{item.icon}</span>
+                <ItemIcon className="w-5 text-[#F97316]" size={14} aria-hidden="true" />
                 {item.label}
               </div>
-            ))}
+              );
+            })}
           </div>
           <div className="border-t border-[#1E1E1E] pt-4 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#F97316]/10 border border-[#F97316]/20 flex items-center justify-center text-sm">
-              💎
+            <div className="w-8 h-8 rounded-full bg-[#F97316]/10 border border-[#F97316]/20 flex items-center justify-center">
+              <FaGem size={13} className="text-[#F97316]" aria-hidden="true" />
             </div>
             <div>
               <p className="text-sm font-semibold text-white">Worth Every Dollar</p>
@@ -196,7 +204,7 @@ export default function BentoGrid() {
                     <div className="w-2 h-2 rounded-full bg-[#F97316] animate-ping" />
                   )}
                 </div>
-                <span className="text-[8px] text-[#666] mt-0.5 whitespace-nowrap">{city.name} {city.flag}</span>
+                <span className="text-[8px] text-[#666] mt-0.5 whitespace-nowrap flex items-center gap-0.5"><FaLocationDot size={7} aria-hidden="true" />{city.name}</span>
               </div>
             ))}
 

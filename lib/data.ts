@@ -275,8 +275,21 @@ export const NAV_LINKS = [
 ];
 
 export const FOOTER_LINKS = {
-  GENERAL: ['Home', 'About Me', 'Projects', 'Blog', 'Videos'],
-  WORK: ['Products', 'Hosting Guide', 'Hire Me', 'Experience', 'Start a Project', 'Book a Consultation', 'Refer & Earn 10%'],
-  COMMUNITY: ['Testimonials', 'Report a Bug', 'GitHub', 'LinkedIn', 'Twitter / X'],
-  LEGAL: ['Privacy Policy', 'Terms of Service', 'Refund Policy'],
+  GENERAL: [
+    { label: 'Home', href: '/' }, { label: 'About Me', href: '/about' }, { label: 'Projects', href: '/work' },
+    { label: 'Blog', href: '/blog' }, { label: 'Videos', href: '/videos' },
+  ],
+  WORK: [
+    { label: 'Products', href: '/products' }, { label: 'Hosting Guide', href: '/hosting-guide' }, { label: 'Hire Me', href: '/hire-me' },
+    { label: 'Experience', href: '/about#experience' }, { label: 'Start a Project', href: '/contact' },
+    { label: 'Book a Consultation', href: '/consultation' }, { label: 'Refer & Earn 10%', href: '/refer' },
+  ],
+  COMMUNITY: [
+    { label: 'Testimonials', href: '/testimonials' }, { label: 'Report a Bug', href: '/report-a-bug' },
+    { label: 'GitHub', href: 'https://github.com/bonaventurechidalu' }, { label: 'LinkedIn', href: 'https://linkedin.com/in/bonaventure-chidalu-b58221350' },
+    { label: 'Twitter / X', href: 'https://twitter.com/bonaventurechidalu' },
+  ],
+  LEGAL: [
+    { label: 'Privacy Policy', href: '/privacy-policy' }, { label: 'Terms of Service', href: '/terms' }, { label: 'Refund Policy', href: '/refund-policy' },
+  ],
 };

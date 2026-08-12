@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Mail, MessageCircle } from 'lucide-react';
+import { FaPaperPlane as Send, FaLocationDot as MapPin, FaEnvelope as Mail, FaCommentDots as MessageCircle, FaCircleCheck } from 'react-icons/fa6';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BackToTop, CustomCursor } from '@/components/UI';
@@ -11,9 +11,10 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '', budget: '' });
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
+    if (response.ok) setSent(true);
   };
 
   return (
@@ -51,7 +52,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-white font-medium">Email</p>
-                    <a href="mailto:abonaventure@gmail.com" className="text-[#F97316] text-sm hover:underline">abonaventure@gmail.com</a>
+                    <a href="mailto:uzochukwubonaventure3@gmail.com" className="text-[#F97316] text-sm hover:underline">uzochukwubonaventure3@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -61,10 +62,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-white font-medium">WhatsApp</p>
                     <a
-                      href="https://wa.me/2349064779856"
+                      href="https://wa.me/2349049269679"
                       className="text-[#F97316] text-sm hover:underline"
                     >
-                      +234 906 477 9856
+                      +234 9049269679
                     </a>
                   </div>
                 </div>
@@ -93,7 +94,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="h-full flex flex-col items-center justify-center text-center p-10 bg-[#111] border border-[#1E1E1E] rounded-2xl"
                 >
-                  <span className="text-6xl mb-4">🎉</span>
+                  <FaCircleCheck className="text-6xl mb-4 text-[#F97316]" aria-label="Success" />
                   <h3 className="text-2xl font-bold text-white mb-3">Message Sent!</h3>
                   <p className="text-[#666]">Thanks for reaching out. I&apos;ll get back to you within 24 hours.</p>
                 </motion.div>
@@ -165,7 +166,7 @@ export default function ContactPage() {
 
                   <p className="text-center text-xs text-[#444]">
                     Or reach me directly on{' '}
-                    <a href="https://wa.me/2349064779856" className="text-[#F97316] hover:underline">WhatsApp</a>
+                    <a href="https://wa.me/2349049269679" className="text-[#F97316] hover:underline">WhatsApp</a>
                   </p>
                 </form>
               )}

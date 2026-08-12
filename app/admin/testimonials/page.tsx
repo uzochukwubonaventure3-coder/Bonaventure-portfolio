@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Pencil, Trash2, X, Loader2, Check, Star } from 'lucide-react';
+import { FaPlus as Plus, FaPencil as Pencil, FaTrash as Trash2, FaXmark as X, FaSpinner as Loader2, FaCheck as Check, FaStar as Star } from 'react-icons/fa6';
 import ImageUpload from '@/components/admin/ImageUpload';
 import toast from 'react-hot-toast';
 

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Mail, MessageCircle } from 'lucide-react';
+import { FaPaperPlane as Send, FaLocationDot as MapPin, FaEnvelope as Mail, FaCommentDots as MessageCircle, FaCircleCheck } from 'react-icons/fa6';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BackToTop, CustomCursor } from '@/components/UI';
@@ -93,7 +93,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="h-full flex flex-col items-center justify-center text-center p-10 bg-[#111] border border-[#1E1E1E] rounded-2xl"
                 >
-                  <span className="text-6xl mb-4">🎉</span>
+                  <FaCircleCheck className="text-6xl mb-4 text-[#F97316]" aria-label="Success" />
                   <h3 className="text-2xl font-bold text-white mb-3">Message Sent!</h3>
                   <p className="text-[#666]">Thanks for reaching out. I&apos;ll get back to you within 24 hours.</p>
                 </motion.div>

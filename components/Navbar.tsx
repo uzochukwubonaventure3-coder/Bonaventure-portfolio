@@ -4,13 +4,14 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Linkedin, ChevronDown, Globe, Menu, X } from 'lucide-react';
+import { FaGithub as Github, FaLinkedin as Linkedin, FaChevronDown as ChevronDown, FaGlobe as Globe, FaBars as Menu, FaXmark as X, FaCheck, FaArrowUpRightFromSquare, FaImages, FaLayerGroup, FaLink, FaUser } from 'react-icons/fa6';
 import { LANGUAGES, NAV_LINKS } from '@/lib/data';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
   const langRef = useRef<HTMLDivElement>(null);
@@ -65,9 +66,72 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <button className="flex items-center gap-1 px-4 py-2 rounded-full text-sm text-[#888] hover:text-white transition-colors">
-            More <ChevronDown size={14} />
-          </button>
+          <div
+            className="relative"
+            onMouseEnter={() => setMoreOpen(true)}
+            onMouseLeave={() => setMoreOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setMoreOpen((open) => !open)}
+              aria-expanded={moreOpen}
+              aria-haspopup="menu"
+              className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm transition-colors ${moreOpen ? 'bg-[#1A1A1A] text-white' : 'text-[#888] hover:text-white'}`}
+            >
+              More <ChevronDown size={12} className={`transition-transform ${moreOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {moreOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.98 }}
+                  transition={{ duration: 0.16 }}
+                  className="absolute left-0 top-full mt-3 w-[520px] rounded-2xl border border-[#242424] bg-[#111]/95 p-3 shadow-2xl shadow-black/60 backdrop-blur-xl"
+                  role="menu"
+                >
+                  <div className="grid grid-cols-[1.1fr_0.9fr] gap-3">
+                    <div className="grid grid-cols-2 gap-3">
+                      <Link href="/bucket-list" onClick={() => setMoreOpen(false)} className="group relative min-h-48 overflow-hidden rounded-xl border border-[#2A2A2A] bg-gradient-to-br from-[#5D3B25] via-[#27211E] to-[#111] p-4" role="menuitem">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(249,115,22,0.42),transparent_34%),linear-gradient(145deg,transparent_45%,rgba(0,0,0,0.7))] transition-transform duration-300 group-hover:scale-110" />
+                        <div className="relative flex h-full flex-col justify-end">
+                          <span className="mb-2 w-fit rounded-lg bg-black/30 p-2 text-[#F97316]"><FaLayerGroup size={14} /></span>
+                          <p className="font-semibold text-white">Bucket list</p>
+                          <p className="text-xs text-[#C4B5A5]">Goals worth pursuing</p>
+                        </div>
+                      </Link>
+                      <Link href="/gallery" onClick={() => setMoreOpen(false)} className="group relative min-h-48 overflow-hidden rounded-xl border border-[#2A2A2A] bg-gradient-to-br from-[#16333A] via-[#182125] to-[#111] p-4" role="menuitem">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(56,189,248,0.28),transparent_32%),linear-gradient(145deg,transparent_45%,rgba(0,0,0,0.72))] transition-transform duration-300 group-hover:scale-110" />
+                        <div className="relative flex h-full flex-col justify-end">
+                          <span className="mb-2 w-fit rounded-lg bg-black/30 p-2 text-sky-300"><FaUser size={14} /></span>
+                          <p className="font-semibold text-white">Gallery</p>
+                          <p className="text-xs text-[#A9C4CA]">A visual work journal</p>
+                        </div>
+                      </Link>
+                    </div>
+                    <div className="space-y-1 rounded-xl bg-[#0D0D0D]/80 p-2">
+                      {[
+                        { href: '/links', icon: FaLink, label: 'Links', description: 'Every important destination' },
+                        { href: '/uses', icon: FaLayerGroup, label: 'Uses', description: 'Tools behind my work' },
+                        { href: '/gallery', icon: FaImages, label: 'Gallery', description: 'A visual work journal' },
+                        { href: '/bucket-list', icon: FaUser, label: 'Bucket list', description: 'Goals and milestones' },
+                      ].map(({ href, icon: Icon, label, description }) => (
+                        <Link key={label} href={href} onClick={() => setMoreOpen(false)} className="flex items-center gap-3 rounded-xl p-2.5 transition-colors hover:bg-[#1A1A1A]" role="menuitem">
+                          <span className="rounded-lg bg-black/40 p-2 text-[#F97316]"><Icon size={13} /></span>
+                          <span>
+                            <span className="block text-sm font-medium text-white">{label}</span>
+                            <span className="block text-[11px] text-[#666]">{description}</span>
+                          </span>
+                          <FaArrowUpRightFromSquare className="ml-auto text-[#444]" size={10} />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </nav>
 
         {/* Right Side */}
@@ -105,7 +169,7 @@ export default function Navbar() {
                         <div className="text-[11px] text-[#666]">{lang.name}</div>
                       </div>
                       {currentLang.code === lang.code && (
-                        <span className="ml-auto text-[#F97316] text-xs">✓</span>
+                        <FaCheck className="ml-auto text-[#F97316]" size={11} aria-label="Selected" />
                       )}
                     </button>
                   ))}

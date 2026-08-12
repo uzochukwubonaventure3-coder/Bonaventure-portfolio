@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, ArrowRight, Download } from 'lucide-react';
+import { FaLocationDot as MapPin, FaArrowRight as ArrowRight, FaDownload as Download } from 'react-icons/fa6';
 import { gsap } from 'gsap';
 import Robot from './Robot';
 import { STATS, TECH_BADGES } from '@/lib/data';

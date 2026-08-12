@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FolderOpen, FileText, Briefcase, Star, Mail, Eye, TrendingUp, Users } from 'lucide-react';
+import { FaFolderOpen as FolderOpen, FaFileLines as FileText, FaBriefcase as Briefcase, FaStar as Star, FaEnvelope as Mail, FaEye as Eye, FaArrowTrendUp as TrendingUp, FaUsers as Users, FaHand as Hand, FaLightbulb as Lightbulb } from 'react-icons/fa6';
 import Link from 'next/link';
 
 interface Stats {
@@ -68,7 +68,7 @@ export default function AdminDashboard() {
         className="mb-8"
       >
         <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-        <p className="text-[#555] text-sm mt-1">Welcome back, Bonaventure 👋</p>
+        <p className="text-[#555] text-sm mt-1 flex items-center gap-1.5">Welcome back, Bonaventure <Hand className="text-[#F97316]" size={14} /></p>
       </motion.div>
 
       {/* Stat Cards */}
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
       <motion.div variants={card(6)} initial="hidden" animate="show">
         <div className="bg-[#F97316]/5 border border-[#F97316]/15 rounded-2xl p-5">
           <h3 className="text-white font-semibold mb-2 flex items-center gap-2">
-            <span>💡</span> Getting Started
+            <Lightbulb size={15} /> Getting Started
           </h3>
           <ul className="space-y-1.5 text-sm text-[#888]">
             <li>1. Go to <strong className="text-white">Settings</strong> and update your bio, stats and social links</li>

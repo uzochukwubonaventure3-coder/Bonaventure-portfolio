@@ -9,10 +9,10 @@ import { BackToTop, CustomCursor } from '@/components/UI';
 import { usePosts, useFeaturedPosts, useSearchPosts, useAllTags } from '@/hooks/usePosts';
 import type { Post, PostSection } from '@/types';
 import {
-  Search, X, Clock, Eye, ExternalLink, Sparkles,
-  Zap, Code2, Brain, BookOpen, Flame, ArrowRight,
-  Calendar, Globe, Github, Star, TrendingUp, Hash,
-} from 'lucide-react';
+  FaMagnifyingGlass as Search, FaXmark as X, FaClock as Clock, FaEye as Eye, FaArrowUpRightFromSquare as ExternalLink, FaWandMagicSparkles as Sparkles,
+  FaBolt as Zap, FaCode as Code2, FaBrain as Brain, FaBookOpen as BookOpen, FaFire as Flame, FaArrowRight as ArrowRight,
+  FaCalendar as Calendar, FaGlobe as Globe, FaGithub as Github, FaStar as Star, FaArrowTrendUp as TrendingUp, FaHashtag as Hash, FaRocket,
+} from 'react-icons/fa6';
 import { formatDistanceToNow, format } from 'date-fns';
 import Link from 'next/link';
 
@@ -323,7 +323,7 @@ export default function BlogPage() {
                 </div>
               ) : posts.length === 0 ? (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-24">
-                  <div className="text-6xl mb-4">🛸</div>
+                  <FaRocket className="mx-auto mb-4 text-[#F97316]" size={44} aria-label="No posts" />
                   <p className="text-white font-semibold text-lg mb-2">Nothing here yet</p>
                   <p className="text-[#333] text-sm">No posts match your filters.</p>
                 </motion.div>
@@ -372,7 +372,7 @@ export default function BlogPage() {
           {!loading && !hasMore && posts.length > 0 && (
             <div className="text-center py-12">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0D0D0D] border border-[#1A1A1A] text-xs text-[#333]">
-                You&apos;ve reached the end <span className="text-[#F97316]">✦</span>
+                You&apos;ve reached the end <Sparkles className="text-[#F97316]" size={12} aria-hidden="true" />
               </span>
             </div>
           )}

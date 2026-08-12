@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Upload, X, ImageIcon, Loader2, Check } from 'lucide-react';
+import { FaUpload as Upload, FaXmark as X, FaImage as ImageIcon, FaSpinner as Loader2, FaCheck as Check, FaTriangleExclamation as AlertTriangle } from 'react-icons/fa6';
 import Image from 'next/image';
 
 interface ImageUploadProps {
@@ -144,7 +144,7 @@ export default function ImageUpload({
 
       {error && (
         <p className="text-xs text-red-400 flex items-center gap-1.5">
-          <span>⚠</span> {error}
+          <AlertTriangle size={14} /> {error}
         </p>
       )}
     </div>

@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  LayoutDashboard, FolderOpen, FileText, Briefcase,
-  MessageSquare, Settings, LogOut, Menu, X, Star,
-  Mail, ExternalLink,
-} from 'lucide-react';
+  FaTableColumns as LayoutDashboard, FaFolderOpen as FolderOpen, FaFileLines as FileText, FaBriefcase as Briefcase,
+  FaMessage as MessageSquare, FaGear as Settings, FaRightFromBracket as LogOut, FaBars as Menu, FaXmark as X, FaStar as Star,
+  FaEnvelope as Mail, FaArrowUpRightFromSquare as ExternalLink, FaCompass as Compass,
+} from 'react-icons/fa6';
 
 const NAV = [
   { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
@@ -17,6 +17,7 @@ const NAV = [
   { href: '/admin/experience', icon: Briefcase, label: 'Experience' },
   { href: '/admin/testimonials', icon: Star, label: 'Testimonials' },
   { href: '/admin/messages', icon: Mail, label: 'Messages' },
+  { href: '/admin/more', icon: Compass, label: 'More Content' },
   { href: '/admin/settings', icon: Settings, label: 'Settings' },
 ];
 

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Eye, Calendar, ExternalLink, Hash, Sparkles, Share2, BookOpen } from 'lucide-react';
+import { FaArrowLeft as ArrowLeft, FaClock as Clock, FaEye as Eye, FaCalendar as Calendar, FaArrowUpRightFromSquare as ExternalLink, FaHashtag as Hash, FaWandMagicSparkles as Sparkles, FaShareNodes as Share2, FaBookOpen as BookOpen } from 'react-icons/fa6';
 import { format } from 'date-fns';
 import type { Post } from '@/types';
 

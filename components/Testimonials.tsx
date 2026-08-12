@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { FaChevronLeft as ChevronLeft, FaChevronRight as ChevronRight } from 'react-icons/fa6';
 import { TESTIMONIALS } from '@/lib/data';
 
 export default function Testimonials() {
@@ -110,12 +111,12 @@ export default function Testimonials() {
 
         {/* CTA */}
         <div className="text-center mt-10">
-          <a
-            href="https://wa.me/2349064779856"
+          <Link
+            href="/testimonials"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#1E1E1E] bg-[#111] text-sm text-[#888] hover:text-[#F97316] hover:border-[#F97316]/30 transition-all"
           >
             Worked with me? <span className="text-[#F97316] font-semibold">Drop a testimonial</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -3,6 +3,13 @@ import Footer from '@/components/Footer';
 import { BackToTop, CustomCursor } from '@/components/UI';
 import Experience from '@/components/Experience';
 import TechStack from '@/components/TechStack';
+import { FaBolt, FaGlobe, FaMagnifyingGlass } from 'react-icons/fa6';
+
+const VALUES = [
+  { icon: FaBolt, title: 'Fast Delivery', desc: 'I ship on time. Always. Deadlines are a commitment, not a suggestion.' },
+  { icon: FaMagnifyingGlass, title: 'Detail Obsessed', desc: 'Every pixel, every query, every edge case — nothing escapes my attention.' },
+  { icon: FaGlobe, title: 'Remote First', desc: 'Async-friendly, timezone-flexible, and built for global collaboration.' },
+];
 
 export default function AboutPage() {
   return (
@@ -32,17 +39,16 @@ export default function AboutPage() {
 
           {/* Values */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-20">
-            {[
-              { icon: '⚡', title: 'Fast Delivery', desc: 'I ship on time. Always. Deadlines are a commitment, not a suggestion.' },
-              { icon: '🔍', title: 'Detail Obsessed', desc: 'Every pixel, every query, every edge case — nothing escapes my attention.' },
-              { icon: '🌍', title: 'Remote First', desc: 'Async-friendly, timezone-flexible, and built for global collaboration.' },
-            ].map((v) => (
+            {VALUES.map((v) => {
+              const ValueIcon = v.icon;
+              return (
               <div key={v.title} className="bento-card">
-                <span className="text-3xl mb-4 block">{v.icon}</span>
+                <ValueIcon className="text-[#F97316] mb-4" size={26} aria-hidden="true" />
                 <h3 className="font-bold text-white text-lg mb-2">{v.title}</h3>
                 <p className="text-[#666] text-sm leading-relaxed">{v.desc}</p>
               </div>
-            ))}
+              );
+            })}
           </div>
 
           <Experience />
