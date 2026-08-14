@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/Navbar';
@@ -35,7 +36,7 @@ function FeaturedCard({ post, index }: { post: Post; index: number }) {
       className="group bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl overflow-hidden hover:border-[#F97316]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#F97316]/5"
     >
       {post.cover_image
-        ? <div className="h-44 overflow-hidden"><img src={post.cover_image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
+        ? <div className="h-44 overflow-hidden"><Image src={post.cover_image} alt={post.title} width={400} height={176} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
         : <div className="h-44 flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${sec.color}10, transparent)` }}><Ic size={48} style={{ color: sec.color, opacity: 0.2 }} /></div>
       }
       <div className="p-5">
@@ -76,7 +77,7 @@ function FeedCard({ post, index }: { post: Post; index: number }) {
     >
       <div className="h-[2px] w-0 group-hover:w-full transition-all duration-500" style={{ background: sec.color }} />
       {post.cover_image && (
-        <div className="h-36 overflow-hidden"><img src={post.cover_image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy" /></div>
+        <div className="h-36 overflow-hidden"><Image src={post.cover_image} alt={post.title} width={400} height={144} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy" /></div>
       )}
       <div className="p-4">
         <div className="flex items-center justify-between mb-2.5">
@@ -172,7 +173,7 @@ export default function BlogPage() {
   const { query, setQuery, results, searching } = useSearchPosts();
 
   const { ref: sentinelRef, inView: sentinelInView } = useInView({ threshold: 0.1 });
-  useEffect(() => { if (sentinelInView && hasMore && !loadingMore) loadMore(); }, [sentinelInView, hasMore, loadingMore]);
+  useEffect(() => { if (sentinelInView && hasMore && !loadingMore) loadMore(); }, [sentinelInView, hasMore, loadingMore, loadMore]);
   useEffect(() => { if (showSearch) setTimeout(() => searchRef.current?.focus(), 100); }, [showSearch]);
 
   function handleSection(sec: string) {

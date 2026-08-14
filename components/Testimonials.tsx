@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { FaChevronLeft as ChevronLeft, FaChevronRight as ChevronRight } from 'react-icons/fa6';
@@ -16,14 +16,14 @@ export default function Testimonials() {
     setCurrent(idx);
   };
 
-  const prev = () => go((current - 1 + TESTIMONIALS.length) % TESTIMONIALS.length, -1);
-  const next = () => go((current + 1) % TESTIMONIALS.length, 1);
+  const prev = useCallback(() => go((current - 1 + TESTIMONIALS.length) % TESTIMONIALS.length, -1), [current]);
+  const next = useCallback(() => go((current + 1) % TESTIMONIALS.length, 1), [current]);
 
   // Auto-play
   useEffect(() => {
     intervalRef.current = setInterval(next, 6000);
     return () => clearInterval(intervalRef.current);
-  }, [current]);
+  }, [next]);
 
   const variants = {
     enter: (d: number) => ({ x: d > 0 ? 120 : -120, opacity: 0, scale: 0.95 }),

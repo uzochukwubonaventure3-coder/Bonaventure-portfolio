@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlus as Plus, FaPencil as Pencil, FaTrash as Trash2, FaXmark as X, FaSpinner as Loader2, FaStar as Star, FaEye as Eye, FaEyeSlash as EyeOff, FaImage as ImageIcon } from 'react-icons/fa6';
 import ImageUpload from '@/components/admin/ImageUpload';
@@ -115,7 +116,7 @@ export default function AdminProjects() {
               {/* Image */}
               <div className="h-36 bg-[#0D0D0D] relative">
                 {p.imageUrl
-                  ? <img src={p.imageUrl} alt={p.title} className="w-full h-full object-cover" />
+                  ? <Image src={p.imageUrl} alt={p.title} fill className="object-cover" />
                   : <div className="w-full h-full flex items-center justify-center text-[#333]"><ImageIcon size={36} aria-label="No project image" /></div>
                 }
                 <div className="absolute top-2 right-2 flex gap-1">

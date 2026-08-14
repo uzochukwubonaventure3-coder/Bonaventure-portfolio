@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlus as Plus, FaPencil as Pencil, FaTrash as Trash2, FaXmark as X, FaSpinner as Loader2, FaEye as Eye, FaEyeSlash as EyeOff, FaStar as Star, FaHashtag as Hash, FaFileLines } from 'react-icons/fa6';
 import ImageUpload from '@/components/admin/ImageUpload';
@@ -107,7 +108,7 @@ export default function AdminBlog() {
             return(
               <motion.div key={p.id} layout initial={{opacity:0}} animate={{opacity:1}}
                 className="bg-[#111] border border-[#1A1A1A] rounded-2xl p-4 flex items-center gap-4 hover:border-[#222] transition-colors">
-                {p.cover_image?<img src={p.cover_image} alt="" className="w-14 h-14 rounded-xl object-cover shrink-0"/>:
+                {p.cover_image?<Image src={p.cover_image} alt="" width={56} height={56} className="w-14 h-14 rounded-xl object-cover shrink-0"/>:
                   <div className="w-14 h-14 rounded-xl shrink-0 flex items-center justify-center" style={{background:`${color}10`}}><FaFileLines size={19} style={{color}} aria-label="Post" /></div>}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">

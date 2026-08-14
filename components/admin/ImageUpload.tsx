@@ -76,7 +76,7 @@ export default function ImageUpload({
 
       {displayImage ? (
         <div className="relative rounded-xl overflow-hidden bg-[#0D0D0D] border border-[#1E1E1E]" style={{ aspectRatio }}>
-          <img src={displayImage} alt="Upload preview" className="w-full h-full object-cover" />
+          <Image src={displayImage} alt="Upload preview" fill className="object-cover" />
 
           {/* Overlay actions */}
           <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">

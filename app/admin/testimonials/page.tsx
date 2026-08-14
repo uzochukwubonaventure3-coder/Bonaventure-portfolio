@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlus as Plus, FaPencil as Pencil, FaTrash as Trash2, FaXmark as X, FaSpinner as Loader2, FaCheck as Check, FaStar as Star } from 'react-icons/fa6';
 import ImageUpload from '@/components/admin/ImageUpload';
@@ -94,7 +95,7 @@ export default function AdminTestimonials() {
                 <p className="text-[#888] text-sm mb-4 line-clamp-3">&quot;{t.quote}&quot;</p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    {t.avatarUrl ? <img src={t.avatarUrl} alt={t.name} className="w-8 h-8 rounded-full object-cover" /> : (
+                    {t.avatarUrl ? <Image src={t.avatarUrl} alt={t.name} width={32} height={32} className="w-8 h-8 rounded-full object-cover" /> : (
                       <div className="w-8 h-8 rounded-full bg-[#F97316]/10 border border-[#F97316]/20 flex items-center justify-center text-xs font-bold text-[#F97316]">{t.initials}</div>
                     )}
                     <div>
