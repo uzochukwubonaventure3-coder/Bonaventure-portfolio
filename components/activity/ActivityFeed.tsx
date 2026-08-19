@@ -3,10 +3,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  FaCodeCommit as GitCommit, FaGithub as Github, FaXTwitter as Twitter, FaLinkedin as Linkedin, FaGlobe as Globe, FaBolt as Zap,
-  FaArrowsRotate as RefreshCw, FaArrowUpRightFromSquare as ExternalLink, FaCode as Code2, FaStar as Star, FaCodeFork as GitFork,
-  FaTerminal as Terminal, FaWifi as Wifi, FaWifi as WifiOff, FaClock as Clock, FaHashtag as Hash, FaHeart, FaRetweet, FaBoxArchive,
-} from 'react-icons/fa6';
+  GitCommit, Github, Twitter, Linkedin, Globe, Zap,
+  RefreshCw, ExternalLink, Code2, Star, GitFork,
+  Terminal, Wifi, WifiOff, Clock, Hash,
+} from 'lucide-react';
 import { formatDistanceToNow, format } from 'date-fns';
 
 // ─── TYPES ─────────────────────────────────────────────────
@@ -107,8 +107,8 @@ function SocialItem({ post }: { post: SocialPost }) {
           <p className="text-[10px] text-[#555] italic line-clamp-1">→ {post.ai_summary}</p>
         )}
         <div className="flex items-center gap-3 mt-1 text-[#2A2A2A] text-[9px]">
-          <span className="flex items-center gap-1"><FaHeart size={9} aria-hidden="true" /> {post.likes}</span>
-          <span className="flex items-center gap-1"><FaRetweet size={9} aria-hidden="true" /> {post.reposts}</span>
+          <span>♥ {post.likes}</span>
+          <span>↺ {post.reposts}</span>
           <span>{formatDistanceToNow(new Date(post.published_at), { addSuffix: true })}</span>
           <a href={post.external_url} target="_blank" rel="noopener noreferrer"
             className="hover:text-[#F97316] transition-colors ml-auto">
@@ -292,7 +292,7 @@ export default function ActivityFeed() {
             className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all capitalize ${
               activeTab === tab ? 'bg-[#F97316] text-white' : 'text-[#555] hover:text-white'
             }`}>
-            <span className="flex items-center gap-1.5">{tab === 'feed' ? <><Zap size={11} /> Activity Feed</> : <><FaBoxArchive size={11} /> Repos</>}</span>
+            {tab === 'feed' ? '⚡ Activity Feed' : '📦 Repos'}
           </button>
         ))}
       </div>

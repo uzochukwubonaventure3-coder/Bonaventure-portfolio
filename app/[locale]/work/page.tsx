@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaArrowRight as ArrowRight, FaArrowUpRightFromSquare as ExternalLink, FaRocket as Rocket } from 'react-icons/fa6';
+import { ArrowRight, ExternalLink, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -147,7 +147,7 @@ export default function WorkPage() {
 
               {filtered.length === 0 && (
                 <div className="text-center py-20 text-[#444]">
-                  <Rocket className="mx-auto mb-4 text-[#F97316]" size={42} aria-label="No projects" />
+                  <p className="text-5xl mb-4">🛸</p>
                   <p>No projects in this category yet.</p>
                 </div>
               )}

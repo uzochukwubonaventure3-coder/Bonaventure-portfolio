@@ -1,9 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
-import { FaArrowLeft as ArrowLeft, FaClock as Clock, FaEye as Eye, FaCalendar as Calendar, FaArrowUpRightFromSquare as ExternalLink, FaHashtag as Hash, FaWandMagicSparkles as Sparkles, FaShareNodes as Share2, FaBookOpen as BookOpen } from 'react-icons/fa6';
+import { ArrowLeft, Clock, Eye, Calendar, ExternalLink, Hash, Sparkles, Share2, BookOpen } from 'lucide-react';
 import { format } from 'date-fns';
 import type { Post } from '@/types';
 
@@ -107,7 +106,7 @@ export default function PostContent({ post, related }: Props) {
         {/* Cover image */}
         {post.cover_image && (
           <div className="rounded-2xl overflow-hidden mb-10 border border-[#1A1A1A]">
-            <Image src={post.cover_image} alt={post.title} width={800} height={320} className="w-full h-64 md:h-80 object-cover" />
+            <img src={post.cover_image} alt={post.title} className="w-full h-64 md:h-80 object-cover" />
           </div>
         )}
       </motion.header>

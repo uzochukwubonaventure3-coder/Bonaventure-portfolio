@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/Navbar';
@@ -10,10 +9,10 @@ import { BackToTop, CustomCursor } from '@/components/UI';
 import { usePosts, useFeaturedPosts, useSearchPosts, useAllTags } from '@/hooks/usePosts';
 import type { Post, PostSection } from '@/types';
 import {
-  FaMagnifyingGlass as Search, FaXmark as X, FaClock as Clock, FaEye as Eye, FaArrowUpRightFromSquare as ExternalLink, FaWandMagicSparkles as Sparkles,
-  FaBolt as Zap, FaCode as Code2, FaBrain as Brain, FaBookOpen as BookOpen, FaFire as Flame, FaArrowRight as ArrowRight,
-  FaCalendar as Calendar, FaGlobe as Globe, FaGithub as Github, FaStar as Star, FaArrowTrendUp as TrendingUp, FaHashtag as Hash, FaRocket,
-} from 'react-icons/fa6';
+  Search, X, Clock, Eye, ExternalLink, Sparkles,
+  Zap, Code2, Brain, BookOpen, Flame, ArrowRight,
+  Calendar, Globe, Github, Star, TrendingUp, Hash,
+} from 'lucide-react';
 import { formatDistanceToNow, format } from 'date-fns';
 import Link from 'next/link';
 
@@ -36,7 +35,7 @@ function FeaturedCard({ post, index }: { post: Post; index: number }) {
       className="group bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl overflow-hidden hover:border-[#F97316]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#F97316]/5"
     >
       {post.cover_image
-        ? <div className="h-44 overflow-hidden"><Image src={post.cover_image} alt={post.title} width={400} height={176} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
+        ? <div className="h-44 overflow-hidden"><img src={post.cover_image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
         : <div className="h-44 flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${sec.color}10, transparent)` }}><Ic size={48} style={{ color: sec.color, opacity: 0.2 }} /></div>
       }
       <div className="p-5">
@@ -77,7 +76,7 @@ function FeedCard({ post, index }: { post: Post; index: number }) {
     >
       <div className="h-[2px] w-0 group-hover:w-full transition-all duration-500" style={{ background: sec.color }} />
       {post.cover_image && (
-        <div className="h-36 overflow-hidden"><Image src={post.cover_image} alt={post.title} width={400} height={144} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy" /></div>
+        <div className="h-36 overflow-hidden"><img src={post.cover_image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100" loading="lazy" /></div>
       )}
       <div className="p-4">
         <div className="flex items-center justify-between mb-2.5">
@@ -173,7 +172,7 @@ export default function BlogPage() {
   const { query, setQuery, results, searching } = useSearchPosts();
 
   const { ref: sentinelRef, inView: sentinelInView } = useInView({ threshold: 0.1 });
-  useEffect(() => { if (sentinelInView && hasMore && !loadingMore) loadMore(); }, [sentinelInView, hasMore, loadingMore, loadMore]);
+  useEffect(() => { if (sentinelInView && hasMore && !loadingMore) loadMore(); }, [sentinelInView, hasMore, loadingMore]);
   useEffect(() => { if (showSearch) setTimeout(() => searchRef.current?.focus(), 100); }, [showSearch]);
 
   function handleSection(sec: string) {
@@ -324,7 +323,7 @@ export default function BlogPage() {
                 </div>
               ) : posts.length === 0 ? (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-24">
-                  <FaRocket className="mx-auto mb-4 text-[#F97316]" size={44} aria-label="No posts" />
+                  <div className="text-6xl mb-4">🛸</div>
                   <p className="text-white font-semibold text-lg mb-2">Nothing here yet</p>
                   <p className="text-[#333] text-sm">No posts match your filters.</p>
                 </motion.div>
@@ -373,7 +372,7 @@ export default function BlogPage() {
           {!loading && !hasMore && posts.length > 0 && (
             <div className="text-center py-12">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0D0D0D] border border-[#1A1A1A] text-xs text-[#333]">
-                You&apos;ve reached the end <Sparkles className="text-[#F97316]" size={12} aria-hidden="true" />
+                You&apos;ve reached the end <span className="text-[#F97316]">✦</span>
               </span>
             </div>
           )}

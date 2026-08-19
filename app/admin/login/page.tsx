@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { FaEye as Eye, FaEyeSlash as EyeOff, FaLock as Lock, FaEnvelope as Mail, FaSpinner as Loader2, FaTriangleExclamation as AlertTriangle } from 'react-icons/fa6';
+import { Eye, EyeOff, Lock, Mail, Loader2 } from 'lucide-react';
 
 export default function AdminLogin() {
   const router = useRouter();
@@ -60,7 +60,7 @@ export default function AdminLogin() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-5 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm flex items-center gap-2"
             >
-              <AlertTriangle size={14} /> {error}
+              <span>⚠</span> {error}
             </motion.div>
           )}
 
@@ -114,7 +114,7 @@ export default function AdminLogin() {
         </div>
 
         <p className="text-center text-xs text-[#333] mt-6">
-          <Lock className="inline mr-1" size={11} /> Secure admin access — Bonaventure Chidalu Portfolio
+          🔒 Secure admin access — Bonaventure Chidalu Portfolio
         </p>
       </motion.div>
     </div>

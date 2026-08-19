@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaFloppyDisk as Save, FaSpinner as Loader2, FaEye as Eye, FaEyeSlash as EyeOff } from 'react-icons/fa6';
+import { Save, Loader2, User } from 'lucide-react';
 import toast from 'react-hot-toast';
 import ImageUpload from '@/components/admin/ImageUpload';
 
@@ -10,8 +10,6 @@ export default function AdminSettings() {
   const [settings, setSettings] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [showPass, setShowPass] = useState(false);
-  const [newPass, setNewPass] = useState('');
 
   useEffect(() => { load(); }, []);
 
@@ -26,15 +24,25 @@ export default function AdminSettings() {
   async function save() {
     setSaving(true);
     try {
-      const res = await fetch('/api/stats', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(settings) });
+      const res = await fetch('/api/stats', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(settings),
+      });
       if (res.ok) toast.success('Settings saved!');
       else toast.error('Failed to save');
     } finally { setSaving(false); }
   }
 
-  function set(key: string, value: string) { setSettings(prev => ({ ...prev, [key]: value })); }
+  function set(key: string, value: string) {
+    setSettings(prev => ({ ...prev, [key]: value }));
+  }
 
-  if (loading) return <div className="flex justify-center py-20 pt-24"><Loader2 className="animate-spin text-[#F97316]" /></div>;
+  if (loading) return (
+    <div className="flex justify-center py-20 pt-24">
+      <Loader2 className="animate-spin text-[#F97316]" />
+    </div>
+  );
 
   const SECTIONS = [
     {
@@ -81,6 +89,59 @@ export default function AdminSettings() {
       </div>
 
       <div className="space-y-8">
+
+        {/* ── PROFILE PICTURE ── */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          className="bg-[#111] border border-[#1E1E1E] rounded-2xl p-6">
+          <div className="flex items-center gap-2 mb-5">
+            <User size={15} className="text-[#F97316]" />
+            <h2 className="font-bold text-white text-sm uppercase tracking-wider">Profile Picture</h2>
+          </div>
+
+          <div className="flex items-start gap-6">
+            {/* Preview */}
+            <div className="shrink-0">
+              <div
+                className="w-24 h-24 overflow-hidden bg-[#1A1A1A] border border-[#2A2A2A]"
+                style={{
+                  clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
+                }}
+              >
+                {settings.profile_picture ? (
+                  <img src={settings.profile_picture} alt="Profile" className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-3xl">🐒</div>
+                )}
+              </div>
+              <p className="text-[9px] text-[#444] text-center mt-2">Preview</p>
+            </div>
+
+            {/* Upload */}
+            <div className="flex-1">
+              <p className="text-xs text-[#555] mb-3 leading-relaxed">
+                Upload your profile picture. It will appear on the About page in the signature blob shape. Recommended: square photo, min 400×400px.
+              </p>
+              <ImageUpload
+                value={settings.profile_picture || undefined}
+                publicId={settings.profile_picture_id || undefined}
+                folder="avatar"
+                label=""
+                aspectRatio="1/1"
+                onUpload={(url, id) => {
+                  set('profile_picture', url);
+                  set('profile_picture_id', id);
+                  toast.success('Picture uploaded! Click Save All to apply.');
+                }}
+                onRemove={() => {
+                  set('profile_picture', '');
+                  set('profile_picture_id', '');
+                }}
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ── CONTENT SECTIONS ── */}
         {SECTIONS.map(({ title, fields }) => (
           <motion.div key={title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             className="bg-[#111] border border-[#1E1E1E] rounded-2xl p-6">
@@ -90,11 +151,17 @@ export default function AdminSettings() {
                 <div key={key}>
                   <label className="block text-xs text-[#555] mb-1.5 uppercase tracking-wider">{label}</label>
                   {multiline ? (
-                    <textarea value={settings[key] ?? ''} onChange={e => set(key, e.target.value)} rows={3} placeholder={placeholder}
-                      className="w-full bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl px-3 py-2.5 text-white text-sm placeholder-[#333] focus:outline-none focus:border-[#F97316]/40 resize-none" />
+                    <textarea
+                      value={settings[key] ?? ''} onChange={e => set(key, e.target.value)}
+                      rows={3} placeholder={placeholder}
+                      className="w-full bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl px-3 py-2.5 text-white text-sm placeholder-[#333] focus:outline-none focus:border-[#F97316]/40 resize-none"
+                    />
                   ) : (
-                    <input value={settings[key] ?? ''} onChange={e => set(key, e.target.value)} placeholder={placeholder}
-                      className="w-full bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl px-3 py-2.5 text-white text-sm placeholder-[#333] focus:outline-none focus:border-[#F97316]/40" />
+                    <input
+                      value={settings[key] ?? ''} onChange={e => set(key, e.target.value)}
+                      placeholder={placeholder}
+                      className="w-full bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl px-3 py-2.5 text-white text-sm placeholder-[#333] focus:outline-none focus:border-[#F97316]/40"
+                    />
                   )}
                 </div>
               ))}
@@ -102,7 +169,7 @@ export default function AdminSettings() {
           </motion.div>
         ))}
 
-        {/* Availability toggle */}
+        {/* ── AVAILABILITY ── */}
         <div className="bg-[#111] border border-[#1E1E1E] rounded-2xl p-6">
           <h2 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Availability</h2>
           <label className="flex items-center justify-between cursor-pointer">
@@ -110,14 +177,16 @@ export default function AdminSettings() {
               <p className="text-white text-sm font-medium">Available for work</p>
               <p className="text-[#555] text-xs mt-0.5">Shows the green dot on your hero section</p>
             </div>
-            <div className={`relative w-11 h-6 rounded-full transition-colors ${settings.available_for_work === 'true' ? 'bg-[#F97316]' : 'bg-[#333]'}`}
-              onClick={() => set('available_for_work', settings.available_for_work === 'true' ? 'false' : 'true')}>
+            <div
+              className={`relative w-11 h-6 rounded-full transition-colors ${settings.available_for_work === 'true' ? 'bg-[#F97316]' : 'bg-[#333]'}`}
+              onClick={() => set('available_for_work', settings.available_for_work === 'true' ? 'false' : 'true')}
+            >
               <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform ${settings.available_for_work === 'true' ? 'translate-x-6' : 'translate-x-1'}`} />
             </div>
           </label>
         </div>
 
-        {/* Save button bottom */}
+        {/* Save */}
         <button onClick={save} disabled={saving}
           className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#F97316] text-white font-semibold hover:bg-[#EA6C0A] disabled:opacity-60 transition-all">
           {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}

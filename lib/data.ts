@@ -12,19 +12,19 @@ export const LANGUAGES = [
 ];
 
 export const TECH_BADGES = [
-  { name: 'PHP', icon: '/icons/php.svg' },
-  { name: 'Laravel', icon: '/icons/laravel.svg' },
-  { name: 'Java', icon: '/icons/java.svg' },
-  { name: 'React', icon: '/icons/react.svg' },
-  { name: 'MySQL', icon: '/icons/mysql.svg' },
-  { name: 'Docker', icon: '/icons/docker.svg' },
-  { name: 'AWS', icon: '/icons/aws.svg' },
-  { name: 'Next.js', icon: '/icons/nextdotjs.svg' },
+  { name: 'PHP',     icon: 'https://cdn.simpleicons.org/php/777BB4' },
+  { name: 'Laravel', icon: 'https://cdn.simpleicons.org/laravel/FF2D20' },
+  { name: 'Java',    icon: 'https://cdn.simpleicons.org/openjdk/ffffff' },
+  { name: 'React',   icon: 'https://cdn.simpleicons.org/react/61DAFB' },
+  { name: 'MySQL',   icon: 'https://cdn.simpleicons.org/mysql/4479A1' },
+  { name: 'Docker',  icon: 'https://cdn.simpleicons.org/docker/2496ED' },
+  { name: 'AWS',     icon: 'https://cdn.simpleicons.org/amazonwebservices/FF9900' },
+  { name: 'Next.js', icon: 'https://cdn.simpleicons.org/nextdotjs/ffffff' },
 ];
 
 export const STATS = [
   { value: '4.8+', label: 'Years of experience in software development' },
-  { value: '25+', label: 'Successful projects delivered' },
+  { value: '25+',  label: 'Successful projects delivered' },
   { value: '55k+', label: 'Users impacted through my work' },
 ];
 
@@ -35,8 +35,7 @@ export const PROJECTS = [
     url: 'proforms.top',
     date: 'July 2025',
     tags: ['PHP', 'MySQL', 'Next.js', 'Redis', 'Docker'],
-    description:
-      'Proforms is a dynamic form builder and data collection platform designed for rapid deployment. Built to streamline workflows, it enables users to create custom forms and manage submissions seamlessly.',
+    description: 'Proforms is a dynamic form builder and data collection platform designed for rapid deployment. Built to streamline workflows, it enables users to create custom forms and manage submissions seamlessly.',
     image: '/projects/proforms.png',
     category: ['Backend', 'Fullstack'],
     link: '#',
@@ -47,22 +46,9 @@ export const PROJECTS = [
     url: 'itrustrapidlogistics.com',
     date: 'March 2026',
     tags: ['PHP', 'Laravel', 'MySQL', 'Vue.js', 'AWS'],
-    description:
-      'A high-performance shipment and logistics platform based in Nigeria, featuring real-time tracking, role-based dashboards, and pixel-perfect implementation of complex UI designs.',
+    description: 'A high-performance shipment and logistics platform based in Nigeria, featuring real-time tracking, role-based dashboards, and pixel-perfect implementation of complex UI designs.',
     image: '/projects/itrust.png',
     category: ['Fullstack', 'Backend'],
-    link: '#',
-  },
-  {
-    id: 'ecommerce',
-    title: 'ShopNaija',
-    url: 'shopnaija.com',
-    date: 'October 2025',
-    tags: ['Laravel', 'React', 'MySQL', 'Stripe'],
-    description:
-      'A modern Nigerian e-commerce platform with real-time inventory, payment integration, and multi-vendor support.',
-    image: '/projects/ecommerce.png',
-    category: ['Fullstack', 'Frontend'],
     link: '#',
   },
   {
@@ -71,58 +57,20 @@ export const PROJECTS = [
     url: 'edureach.ng',
     date: 'January 2026',
     tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'AWS'],
-    description:
-      'A learning management system for African educators with offline-first capability and interactive assessments.',
+    description: 'A learning management system for African educators with offline-first capability and interactive assessments.',
     image: '/projects/edutech.png',
     category: ['Frontend', 'Fullstack'],
     link: '#',
   },
   {
-    id: 'fintech',
-    title: 'PayStack Clone',
-    url: 'payclone.dev',
-    date: 'December 2024',
-    tags: ['PHP', 'Laravel', 'Vue.js', 'Redis'],
-    description:
-      'A fintech payment processing API clone built for learning with full transaction history and webhooks.',
-    image: '/projects/fintech.png',
-    category: ['Backend'],
-    link: '#',
-  },
-  {
-    id: 'realestate',
-    title: 'HouseMate NG',
-    url: 'housemateng.com',
-    date: 'August 2025',
-    tags: ['Next.js', 'TypeScript', 'MySQL', 'Google Maps'],
-    description:
-      'Real estate platform for Nigerian property listings with geolocation search and landlord/tenant dashboards.',
-    image: '/projects/realestate.png',
-    category: ['Frontend', 'Fullstack'],
-    link: '#',
-  },
-  {
-    id: 'wordpress1',
-    title: 'Heritage Times',
-    url: 'heritagetimes.ng',
-    date: 'March 2026',
-    tags: ['WordPress', 'SEO', 'PHP'],
-    description:
-      'Digital news platform built on WordPress with advanced SEO optimization and custom theme development.',
-    image: '/projects/heritage.png',
-    category: ['WordPress', 'SEO'],
-    link: '#',
-  },
-  {
-    id: 'mobile1',
-    title: 'FoodRunner App',
-    url: 'foodrunner.app',
-    date: 'February 2026',
-    tags: ['React Native', 'Node.js', 'MongoDB'],
-    description:
-      'Cross-platform food delivery mobile app with real-time order tracking, push notifications, and driver management.',
-    image: '/projects/foodrunner.png',
-    category: ['Mobile'],
+    id: 'shopnaija',
+    title: 'ShopNaija',
+    url: 'shopnaija.com',
+    date: 'October 2025',
+    tags: ['Laravel', 'React', 'MySQL', 'Stripe'],
+    description: 'A modern Nigerian e-commerce platform with real-time inventory, payment integration, and multi-vendor support.',
+    image: '/projects/ecommerce.png',
+    category: ['Fullstack', 'Frontend'],
     link: '#',
   },
 ];
@@ -135,7 +83,7 @@ export const EXPERIENCE = [
     type: 'Remote (Part-time Staff)',
     period: 'Mar 2026 – Present',
     badge: 'Current',
-    logo: '/logos/heritage.png',
+    logo: '',
     initials: 'HT',
     color: '#E63946',
     tags: ['SEO', 'WordPress', 'Search Console', 'Analytics', 'Performance'],
@@ -153,7 +101,7 @@ export const EXPERIENCE = [
     type: 'Remote (Full-stack)',
     period: 'Nov 2025 – Present',
     badge: 'Current',
-    logo: '/logos/mvpginger.png',
+    logo: '',
     initials: 'MG',
     color: '#F97316',
     tags: ['Laravel', 'Team Leadership', 'Mentorship', 'Backend Architecture'],
@@ -171,59 +119,58 @@ export const EXPERIENCE = [
     type: 'Remote (Part-time)',
     period: 'Jan 2025 – Sep 2025',
     badge: '9 months',
-    logo: '/logos/gphoneix.png',
+    logo: '',
     initials: 'GP',
     color: '#6366F1',
     tags: ['Laravel', 'PHP', 'MySQL', 'React', 'AWS'],
     bullets: [
-      'Leading full-stack development initiatives using the Laravel ecosystem to deliver high-performance, scalable web solutions.',
-      'Building and maintaining robust backend architectures while ensuring seamless frontend integration.',
-      'Collaborating with product teams to define technical requirements and deliver features on schedule.',
-      'Implementing CI/CD pipelines and containerized deployments using Docker and AWS.',
+      'Led full-stack development initiatives using the Laravel ecosystem to deliver high-performance, scalable web solutions.',
+      'Built and maintained robust backend architectures while ensuring seamless frontend integration.',
+      'Implemented CI/CD pipelines and containerized deployments using Docker and AWS.',
     ],
   },
 ];
 
+// Tech stack with real CDN icon URLs (simpleicons.org)
 export const TECH_STACK = {
   FRONTEND: [
-    { name: 'Vue.js', icon: '🟢' },
-    { name: 'Tailwind CSS', icon: '🎨' },
-    { name: 'React', icon: '⚛️' },
-    { name: 'Next.js', icon: '▲' },
-    { name: 'TypeScript', icon: '🔷' },
-    { name: 'Framer Motion', icon: '🎞' },
-    { name: 'Figma', icon: '🎯' },
-    { name: 'WordPress', icon: '🔵' },
+    { name: 'Vue.js',         icon: 'https://cdn.simpleicons.org/vuedotjs/4FC08D' },
+    { name: 'Tailwind CSS',   icon: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
+    { name: 'React',          icon: 'https://cdn.simpleicons.org/react/61DAFB' },
+    { name: 'Next.js',        icon: 'https://cdn.simpleicons.org/nextdotjs/ffffff' },
+    { name: 'TypeScript',     icon: 'https://cdn.simpleicons.org/typescript/3178C6' },
+    { name: 'Framer Motion',  icon: 'https://cdn.simpleicons.org/framer/ffffff' },
+    { name: 'Figma',          icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
+    { name: 'WordPress',      icon: 'https://cdn.simpleicons.org/wordpress/21759B' },
   ],
   BACKEND: [
-    { name: 'Laravel', icon: '🔴' },
-    { name: 'PHP', icon: '🐘' },
-    { name: 'Java', icon: '☕' },
-    { name: 'Node.js', icon: '🟩' },
+    { name: 'Laravel', icon: 'https://cdn.simpleicons.org/laravel/FF2D20' },
+    { name: 'PHP',     icon: 'https://cdn.simpleicons.org/php/777BB4' },
+    { name: 'Java',    icon: 'https://cdn.simpleicons.org/openjdk/ffffff' },
+    { name: 'Node.js', icon: 'https://cdn.simpleicons.org/nodedotjs/339933' },
   ],
   MOBILE: [
-    { name: 'React Native', icon: '📱' },
+    { name: 'React Native', icon: 'https://cdn.simpleicons.org/react/61DAFB' },
   ],
   DATABASE: [
-    { name: 'Redis', icon: '🔴' },
-    { name: 'PostgreSQL', icon: '🐘' },
-    { name: 'MySQL', icon: '🐬' },
-    { name: 'MongoDB', icon: '🍃' },
+    { name: 'Redis',      icon: 'https://cdn.simpleicons.org/redis/DC382D' },
+    { name: 'PostgreSQL', icon: 'https://cdn.simpleicons.org/postgresql/4169E1' },
+    { name: 'MySQL',      icon: 'https://cdn.simpleicons.org/mysql/4479A1' },
+    { name: 'MongoDB',    icon: 'https://cdn.simpleicons.org/mongodb/47A248' },
   ],
   DEVOPS: [
-    { name: 'Git', icon: '🌿' },
-    { name: 'GitHub Actions', icon: '⚙️' },
-    { name: 'Docker', icon: '🐳' },
-    { name: 'AWS', icon: '☁️' },
-    { name: 'Linux Technologies', icon: '🐧' },
+    { name: 'Git',            icon: 'https://cdn.simpleicons.org/git/F05032' },
+    { name: 'GitHub Actions', icon: 'https://cdn.simpleicons.org/githubactions/2088FF' },
+    { name: 'Docker',         icon: 'https://cdn.simpleicons.org/docker/2496ED' },
+    { name: 'AWS',            icon: 'https://cdn.simpleicons.org/amazonwebservices/FF9900' },
+    { name: 'Linux',          icon: 'https://cdn.simpleicons.org/linux/FCC624' },
   ],
 };
 
 export const TESTIMONIALS = [
   {
     id: 1,
-    quote:
-      'I needed a premium executive portfolio that reflected my 20+ years in the energy sector. Bonaventure delivered beyond expectations — a stunning Next.js website with smooth animations that perfectly captures my professional journey. He captured the essence of my brand beautifully. Several high-profile partners have commented on how impressive the site is. Truly world-class work.',
+    quote: 'I needed a premium executive portfolio that reflected my 20+ years in the energy sector. Bonaventure delivered beyond expectations — a stunning Next.js website with smooth animations that perfectly captures my professional journey. Truly world-class work.',
     name: 'Dr. Ugo Okafor',
     title: 'Founder & CEO, SunTrust Atlantic Energies',
     avatar: '👨‍💼',
@@ -231,8 +178,7 @@ export const TESTIMONIALS = [
   },
   {
     id: 2,
-    quote:
-      'Bonaventure built our logistics platform from scratch in record time. The real-time tracking system he implemented works flawlessly and our clients love the clean UI. He communicates clearly, hits deadlines, and the code quality is exceptional. We will definitely be hiring him again.',
+    quote: 'Bonaventure built our logistics platform from scratch in record time. The real-time tracking system works flawlessly and our clients love the clean UI. He communicates clearly, hits deadlines, and the code quality is exceptional.',
     name: 'Mrs. Adaeze Nwosu',
     title: 'Operations Director, iTrust Rapid Logistics',
     avatar: '👩‍💼',
@@ -240,8 +186,7 @@ export const TESTIMONIALS = [
   },
   {
     id: 3,
-    quote:
-      'Working with Bonaventure on our LMS was a game-changer. He understood our vision immediately and turned complex requirements into an intuitive platform our students love. His backend architecture is solid and the platform has scaled to 10,000+ users without a hitch.',
+    quote: 'Working with Bonaventure on our LMS was a game-changer. He understood our vision immediately and turned complex requirements into an intuitive platform. The backend architecture is solid — it has scaled to 10,000+ users without a hitch.',
     name: 'Mr. Seun Adewale',
     title: 'CEO, EduReach Nigeria',
     avatar: '👨‍🏫',
@@ -249,8 +194,7 @@ export const TESTIMONIALS = [
   },
   {
     id: 4,
-    quote:
-      'The best developer I have worked with. Period. Fast delivery, clean code, perfect communication, and he always brings extra ideas that improve the project. Our e-commerce platform has seen a 300% increase in organic traffic thanks to his SEO optimization.',
+    quote: 'The best developer I have worked with. Fast delivery, clean code, perfect communication. Our e-commerce platform has seen a 300% increase in organic traffic thanks to his SEO optimization.',
     name: 'Fatima Al-Hassan',
     title: 'Founder, ShopNaija',
     avatar: '👩‍💻',
@@ -258,8 +202,7 @@ export const TESTIMONIALS = [
   },
   {
     id: 5,
-    quote:
-      'Bonaventure led our backend team with professionalism and technical excellence. He mentored junior developers while simultaneously architecting our core systems. Rare to find someone who can do both at such a high level.',
+    quote: 'Bonaventure led our backend team with professionalism and technical excellence. He mentored junior developers while architecting our core systems. Rare to find someone who can do both at such a high level.',
     name: 'James Okonkwo',
     title: 'CTO, MVP Ginger',
     avatar: '👨‍💻',
@@ -268,28 +211,15 @@ export const TESTIMONIALS = [
 ];
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'Work', href: '/work' },
+  { label: 'Home',  href: '/' },
+  { label: 'Work',  href: '/work' },
   { label: 'About', href: '/about' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Blog',  href: '/blog' },
 ];
 
 export const FOOTER_LINKS = {
-  GENERAL: [
-    { label: 'Home', href: '/' }, { label: 'About Me', href: '/about' }, { label: 'Projects', href: '/work' },
-    { label: 'Blog', href: '/blog' }, { label: 'Videos', href: '/videos' },
-  ],
-  WORK: [
-    { label: 'Products', href: '/products' }, { label: 'Hosting Guide', href: '/hosting-guide' }, { label: 'Hire Me', href: '/hire-me' },
-    { label: 'Experience', href: '/about#experience' }, { label: 'Start a Project', href: '/contact' },
-    { label: 'Book a Consultation', href: '/consultation' }, { label: 'Refer & Earn 10%', href: '/refer' },
-  ],
-  COMMUNITY: [
-    { label: 'Testimonials', href: '/testimonials' }, { label: 'Report a Bug', href: '/report-a-bug' },
-    { label: 'GitHub', href: 'https://github.com/bonaventurechidalu' }, { label: 'LinkedIn', href: 'https://linkedin.com/in/bonaventure-chidalu-b58221350' },
-    { label: 'Twitter / X', href: 'https://twitter.com/bonaventurechidalu' },
-  ],
-  LEGAL: [
-    { label: 'Privacy Policy', href: '/privacy-policy' }, { label: 'Terms of Service', href: '/terms' }, { label: 'Refund Policy', href: '/refund-policy' },
-  ],
+  GENERAL:   ['Home', 'About Me', 'Projects', 'Blog', 'Videos'],
+  WORK:      ['Products', 'Hosting Guide', 'Hire Me', 'Experience', 'Start a Project', 'Book a Consultation', 'Refer & Earn 10%'],
+  COMMUNITY: ['Testimonials', 'Report a Bug', 'GitHub', 'LinkedIn', 'Twitter / X'],
+  LEGAL:     ['Privacy Policy', 'Terms of Service', 'Refund Policy'],
 };

@@ -1,9 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPlus as Plus, FaPencil as Pencil, FaTrash as Trash2, FaXmark as X, FaSpinner as Loader2, FaEye as Eye, FaEyeSlash as EyeOff, FaStar as Star, FaHashtag as Hash, FaFileLines } from 'react-icons/fa6';
+import { Plus, Pencil, Trash2, X, Loader2, Eye, EyeOff, Star, Hash } from 'lucide-react';
 import ImageUpload from '@/components/admin/ImageUpload';
 import toast from 'react-hot-toast';
 import { formatDistanceToNow } from 'date-fns';
@@ -101,21 +100,21 @@ export default function AdminBlog() {
         ))}
       </div>
       {loading?(<div className="flex justify-center py-20"><Loader2 className="animate-spin text-[#F97316]"/></div>):
-      filtered.length===0?(<div className="text-center py-20 text-[#333]"><FaFileLines className="mx-auto mb-3" size={32} aria-label="No posts"/><p>No posts yet.</p></div>):(
+      filtered.length===0?(<div className="text-center py-20 text-[#333]"><p className="text-4xl mb-3">📝</p><p>No posts yet.</p></div>):(
         <div className="space-y-2">
           {filtered.map(p=>{
             const color=SECTION_COLORS[p.section]??'#F97316';
             return(
               <motion.div key={p.id} layout initial={{opacity:0}} animate={{opacity:1}}
                 className="bg-[#111] border border-[#1A1A1A] rounded-2xl p-4 flex items-center gap-4 hover:border-[#222] transition-colors">
-                {p.cover_image?<Image src={p.cover_image} alt="" width={56} height={56} className="w-14 h-14 rounded-xl object-cover shrink-0"/>:
-                  <div className="w-14 h-14 rounded-xl shrink-0 flex items-center justify-center" style={{background:`${color}10`}}><FaFileLines size={19} style={{color}} aria-label="Post" /></div>}
+                {p.cover_image?<img src={p.cover_image} alt="" className="w-14 h-14 rounded-xl object-cover shrink-0"/>:
+                  <div className="w-14 h-14 rounded-xl shrink-0 flex items-center justify-center text-xl" style={{background:`${color}10`}}>📝</div>}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
                     <span className="text-[9px] font-bold uppercase" style={{color}}>{p.section}</span>
                     {p.published&&<span className="text-[9px] px-1.5 py-0.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/15">LIVE</span>}
                     {!p.published&&<span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#1A1A1A] text-[#444] border border-[#222]">DRAFT</span>}
-                    {p.featured&&<span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/20"><Star size={9} aria-label="Featured" /></span>}
+                    {p.featured&&<span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/20">★</span>}
                   </div>
                   <p className="font-semibold text-white text-sm truncate">{p.title}</p>
                   <div className="flex items-center gap-3 mt-0.5">

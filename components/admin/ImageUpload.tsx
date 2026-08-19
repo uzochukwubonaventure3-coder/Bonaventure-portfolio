@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaUpload as Upload, FaXmark as X, FaImage as ImageIcon, FaSpinner as Loader2, FaCheck as Check, FaTriangleExclamation as AlertTriangle } from 'react-icons/fa6';
+import { Upload, X, ImageIcon, Loader2, Check } from 'lucide-react';
 import Image from 'next/image';
 
 interface ImageUploadProps {
@@ -76,7 +76,7 @@ export default function ImageUpload({
 
       {displayImage ? (
         <div className="relative rounded-xl overflow-hidden bg-[#0D0D0D] border border-[#1E1E1E]" style={{ aspectRatio }}>
-          <Image src={displayImage} alt="Upload preview" fill className="object-cover" />
+          <img src={displayImage} alt="Upload preview" className="w-full h-full object-cover" />
 
           {/* Overlay actions */}
           <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
@@ -144,7 +144,7 @@ export default function ImageUpload({
 
       {error && (
         <p className="text-xs text-red-400 flex items-center gap-1.5">
-          <AlertTriangle size={14} /> {error}
+          <span>⚠</span> {error}
         </p>
       )}
     </div>

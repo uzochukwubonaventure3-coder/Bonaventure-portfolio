@@ -5,7 +5,6 @@ import BentoGrid from '@/components/BentoGrid';
 import Experience from '@/components/Experience';
 import TechStack from '@/components/TechStack';
 import Testimonials from '@/components/Testimonials';
-import ActivityFeed from '@/components/activity/ActivityFeed';
 import Footer from '@/components/Footer';
 import { BackToTop, CustomCursor } from '@/components/UI';
 
@@ -14,10 +13,9 @@ export default function Home() {
     <>
       <CustomCursor />
       <Navbar />
-      <main className="cursor-none">
+      <main className="md:cursor-none">
         <Hero />
         <Projects />
-        <ActivityFeed />
         <BentoGrid />
         <Experience />
         <TechStack />

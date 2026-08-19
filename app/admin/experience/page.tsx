@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPlus as Plus, FaPencil as Pencil, FaTrash as Trash2, FaXmark as X, FaSpinner as Loader2, FaGripVertical as GripVertical } from 'react-icons/fa6';
+import { Plus, Pencil, Trash2, X, Loader2, GripVertical } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface Exp { id: string; title: string; company: string; type: string; period: string; badge: string | null; initials: string; color: string; tags: string[]; bullets: string[]; order: number; current: boolean; }

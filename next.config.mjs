@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
-import createNextIntlPlugin from 'next-intl/plugin';
-
-const withNextIntl = createNextIntlPlugin();
-
 const nextConfig = {
   images: {
-    domains: ['bonaventurechidalu.com.ng', 'via.placeholder.com'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.simpleicons.org' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'https', hostname: 'avatars.githubusercontent.com' },
+      { protocol: 'https', hostname: 'raw.githubusercontent.com' },
+    ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+  experimental: { serverComponentsExternalPackages: ['bcryptjs'] },
 };
-
-export default withNextIntl(nextConfig);
+export default nextConfig;

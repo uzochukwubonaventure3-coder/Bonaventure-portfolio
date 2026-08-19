@@ -147,3 +147,48 @@ BEGIN
   RETURN v_id;
 END;
 $$ LANGUAGE plpgsql;
+
+-- ─── TECH SKILLS TABLE ─────────────────────────────────────
+CREATE TABLE IF NOT EXISTS tech_skills (
+  id       UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name     TEXT NOT NULL,
+  icon     TEXT NOT NULL DEFAULT '⚡',
+  category TEXT NOT NULL CHECK (category IN ('FRONTEND','BACKEND','MOBILE','DATABASE','DEVOPS','TOOLS')),
+  "order"  INT NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS ts_category_idx ON tech_skills (category);
+CREATE INDEX IF NOT EXISTS ts_order_idx    ON tech_skills ("order");
+
+ALTER TABLE tech_skills ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public read tech_skills" ON tech_skills FOR SELECT USING (true);
+
+-- Seed default tech stack
+INSERT INTO tech_skills (name, icon, category, "order") VALUES
+  ('Vue.js',        '🟢', 'FRONTEND', 1),
+  ('Tailwind CSS',  '🎨', 'FRONTEND', 2),
+  ('React',         '⚛️', 'FRONTEND', 3),
+  ('Next.js',       '▲',  'FRONTEND', 4),
+  ('TypeScript',    '🔷', 'FRONTEND', 5),
+  ('Framer Motion', '🎞', 'FRONTEND', 6),
+  ('Figma',         '🎯', 'FRONTEND', 7),
+  ('WordPress',     '🔵', 'FRONTEND', 8),
+  ('Laravel',       '🔴', 'BACKEND',  1),
+  ('PHP',           '🐘', 'BACKEND',  2),
+  ('Java',          '☕', 'BACKEND',  3),
+  ('Node.js',       '🟩', 'BACKEND',  4),
+  ('React Native',  '📱', 'MOBILE',   1),
+  ('Redis',         '🔴', 'DATABASE', 1),
+  ('PostgreSQL',    '🐘', 'DATABASE', 2),
+  ('MySQL',         '🐬', 'DATABASE', 3),
+  ('MongoDB',       '🍃', 'DATABASE', 4),
+  ('Git',           '🌿', 'DEVOPS',   1),
+  ('GitHub Actions','⚙️', 'DEVOPS',   2),
+  ('Docker',        '🐳', 'DEVOPS',   3),
+  ('AWS',           '☁️', 'DEVOPS',   4),
+  ('Linux',         '🐧', 'DEVOPS',   5),
+  ('VS Code',       '💙', 'TOOLS',    1),
+  ('Postman',       '🔶', 'TOOLS',    2),
+  ('Notion',        '📝', 'TOOLS',    3)
+ON CONFLICT DO NOTHING;

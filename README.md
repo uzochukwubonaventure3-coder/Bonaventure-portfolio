@@ -2,24 +2,24 @@
 
 A production-ready fullstack portfolio with Supabase backend, Cloudinary image uploads, and an Engineering Journal feed.
 
-##  Stack
+## 🚀 Stack
 - **Next.js 14** · **React 18** · **TypeScript** · **Tailwind CSS**
 - **Framer Motion** · **GSAP** · **Three.js**
 - **Supabase** (PostgreSQL + Auth + RLS)
 - **Cloudinary** (image upload/CDN)
 - **Jose** (JWT admin auth)
 
-##  Features
--  Mouse-tracking SVG robot on hero
--  10-language selector
--  Engineering Journal feed (5 sections, grid + timeline, infinite scroll, search, tags)
--  Full admin dashboard — Projects, Blog, Experience, Testimonials, Messages, Settings
--  Cloudinary drag-drop image upload with preview
--  JWT-protected admin routes + middleware
--  Supabase PostgreSQL with RLS policies
--  Fully responsive
+## ✨ Features
+- 🤖 Mouse-tracking SVG robot on hero
+- 🌍 10-language selector
+- 🗞️ Engineering Journal feed (5 sections, grid + timeline, infinite scroll, search, tags)
+- 📋 Full admin dashboard — Projects, Blog, Experience, Testimonials, Messages, Settings
+- ☁️ Cloudinary drag-drop image upload with preview
+- 🔐 JWT-protected admin routes + middleware
+- 📊 Supabase PostgreSQL with RLS policies
+- 📱 Fully responsive
 
-##  Quick Start
+## ⚡ Quick Start
 
 ### 1. Install dependencies
 ```bash
@@ -59,7 +59,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 The SQL migration seeds a default admin. Update the email/password in `lib/supabase/migration.sql` before running it, or update via Supabase dashboard → Table editor → admins table.
 
 **Default:** `bonaventurechidalu@gmail.com` / `Admin@123`
- **Change the password after first login!**
+⚠️ **Change the password after first login!**
 
 ### 6. Run
 ```bash
@@ -69,7 +69,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000)  
 Admin: [http://localhost:3000/admin](http://localhost:3000/admin)
 
-##  Structure
+## 📁 Structure
 ```
 ├── app/
 │   ├── page.tsx              # Home
@@ -98,7 +98,7 @@ Admin: [http://localhost:3000/admin](http://localhost:3000/admin)
 └── types/index.ts            # All TypeScript types
 ```
 
-##  Admin Pages
+## 🔐 Admin Pages
 | Page | URL |
 |---|---|
 | Dashboard | `/admin` |
@@ -109,13 +109,13 @@ Admin: [http://localhost:3000/admin](http://localhost:3000/admin)
 | Messages | `/admin/messages` |
 | Settings | `/admin/settings` |
 
-##  Deploy to Vercel
+## 🌍 Deploy to Vercel
 ```bash
 npx vercel
 ```
 Add all env variables in Vercel dashboard → Settings → Environment Variables.
 
-##  Engineering Journal Sections
+## 📝 Engineering Journal Sections
 | Section | Color | Use For |
 |---|---|---|
 | Latest Thoughts | 🟡 Yellow | Short takes, opinions |

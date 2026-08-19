@@ -31,6 +31,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Only apply custom cursor on desktop */
+@media (min-width: 768px) {
+  .cursor-none { cursor: none; }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #111; }
@@ -271,19 +276,189 @@ body {
   .text-balance { text-wrap: balance; }
 }
 
-/* Mobile nav */
+
+
+/* ─── MOBILE BOTTOM NAV SPACING ──────────────────────────── */
+/* Extra bottom padding so content doesn't hide behind the pill nav */
 @media (max-width: 768px) {
-  .mobile-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #111;
-    border-top: 1px solid #222;
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 100;
+  main {
+    padding-bottom: 80px;
+  }
+  footer {
+    padding-bottom: 100px;
   }
 }
+
+/* ─── BACK TO TOP — mobile position (above bottom nav pill) ─ */
+@media (max-width: 768px) {
+  .back-top-btn {
+    bottom: 80px !important;
+    right: 16px !important;
+  }
+}
+
+/* ─── MOBILE NO SCROLLBAR ─────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── SECTION MOBILE PADDING ─────────────────────────────── */
+@media (max-width: 768px) {
+  .section { padding: 48px 0; }
+}
+
+/* ─── TECH BADGE MOBILE ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .tech-badge {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+/* ─── STAT NUMBER MOBILE ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: clamp(52px, 15vw, 72px);
+  }
+  .stat-label {
+    font-size: 13px;
+    max-width: 220px;
+    text-align: center;
+  }
+}
+
+/* ─── PROJECT CARD MOBILE FULL WIDTH ──────────────────────── */
+@media (max-width: 768px) {
+  .project-card {
+    border-radius: 16px;
+  }
+}
+
+/* ─── BENTO CARD MOBILE ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .bento-card {
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .cta-card {
+    border-radius: 16px;
+    padding: 24px;
+  }
+}
+
+/* ─── TESTIMONIAL CARD MOBILE ─────────────────────────────── */
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+}
+
+/* ─── HERO MOBILE ROBOT GLOW RINGS HIDE ───────────────────── */
+@media (max-width: 768px) {
+  .hero-glow { display: none; }
+}
+
+/* ─── CORE CENTERING FIX ─────────────────────────────────── */
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ─── LIGHT MODE ─────────────────────────────────────────── */
+.light-mode {
+  --bg: #f8f8f8;
+  --bg-card: #ffffff;
+  --border: #e5e5e5;
+  --text: #0A0A0A;
+  --text-muted: #666666;
+}
+.light-mode body {
+  background-color: #f8f8f8;
+  color: #0A0A0A;
+}
+.light-mode .bento-card,
+.light-mode .project-card,
+.light-mode .testimonial-card {
+  background: #ffffff;
+  border-color: #e5e5e5;
+}
+
+/* ─── SIMPLEICONS FIX — invert on light mode ─────────────── */
+.light-mode img[src*="simpleicons.org"][src*="ffffff"] {
+  filter: invert(1);
+}
+
+/* ─── MOBILE OVERFLOW PREVENTION ─────────────────────────── */
+@media (max-width: 768px) {
+  section, .section {
+    overflow-x: hidden;
+  }
+  .max-w-7xl {
+    width: 100%;
+  }
+  /* Prevent any child from busting out */
+  * {
+    max-width: 100vw;
+  }
+}
+
+/* ─── MOBILE BOTTOM NAV SAFE SPACING ─────────────────────── */
+@media (max-width: 768px) {
+  main { padding-bottom: 90px; }
+  footer { padding-bottom: 90px; }
+  .back-top-btn { bottom: 84px !important; }
+}
+
+/* ─── BACK TO TOP BUTTON ─────────────────────────────────── */
+.back-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 100px;
+  color: #888;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 30;
+  white-space: nowrap;
+}
+.back-top-btn:hover {
+  color: white;
+  border-color: #333;
+  background: #1A1A1A;
+}
+
+/* ─── MARQUEE ANIMATIONS ─────────────────────────────────── */
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes marquee-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+.animate-marquee { animation: marquee 25s linear infinite; }
+.animate-marquee-reverse { animation: marquee-reverse 20s linear infinite; }
+
+/* ─── SECTION TITLE UNDERLINE ────────────────────────────── */
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: #F97316;
+  border-radius: 2px;
+}
+
+/* ─── NO SCROLLBAR ───────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
