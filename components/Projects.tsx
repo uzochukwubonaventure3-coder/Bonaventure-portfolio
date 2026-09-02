@@ -6,7 +6,9 @@ import { ArrowRight, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { PROJECTS } from '@/lib/data';
 
-function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: number }) {
+type Project = typeof PROJECTS[number];
+
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
@@ -67,7 +69,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
   );
 }
 
-export default function Projects() {
+export default function Projects({ projects = PROJECTS }: { projects?: Project[] }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
@@ -84,7 +86,7 @@ export default function Projects() {
         <div className="flex items-stretch gap-6">
           {/* Two cards */}
           <div className="flex-1 grid grid-cols-2 gap-6">
-            {PROJECTS.slice(0, 2).map((project, i) => (
+            {projects.slice(0, 2).map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
           </div>
@@ -113,7 +115,7 @@ export default function Projects() {
 
       {/* ── MOBILE: single column cards + full-width +15 section ── */}
       <div className="md:hidden space-y-5">
-        {PROJECTS.slice(0, 2).map((project, i) => (
+        {projects.slice(0, 2).map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}
 

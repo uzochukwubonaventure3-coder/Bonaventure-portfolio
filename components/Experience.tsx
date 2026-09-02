@@ -5,7 +5,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ChevronUp, ChevronDown } from 'lucide-react';
 import { EXPERIENCE } from '@/lib/data';
 
-export default function Experience() {
+export default function Experience({ experience = EXPERIENCE }: { experience?: typeof EXPERIENCE }) {
   const [expanded, setExpanded] = useState<number | null>(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
@@ -33,7 +33,7 @@ export default function Experience() {
         </div>
 
         <div className="space-y-8 md:space-y-12">
-          {EXPERIENCE.map((exp, i) => {
+          {experience.map((exp, i) => {
             const isLeft = i % 2 === 0;
             const isOpen = expanded === i;
 

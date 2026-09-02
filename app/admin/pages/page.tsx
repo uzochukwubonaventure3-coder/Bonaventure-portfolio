@@ -27,7 +27,7 @@ const SECTIONS = [
     color: '#22C55E',
     desc: 'The 3 big numbers shown below your hero section',
     fields: [
-      { key: 'stat_years', label: 'Years of Experience', placeholder: '4.8+' },
+      { key: 'stat_years', label: 'Years of Experience', placeholder: '2+' },
       { key: 'stat_projects', label: 'Projects Delivered', placeholder: '25+' },
       { key: 'stat_users', label: 'Users Impacted', placeholder: '55k+' },
     ],

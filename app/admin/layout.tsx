@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 
 export const metadata: Metadata = {
-  title: 'Admin — BC Portfolio',
+  title: 'Admin — Bonaventure Portfolio',
   robots: 'noindex, nofollow',
 };
 

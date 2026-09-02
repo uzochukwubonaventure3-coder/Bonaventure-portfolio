@@ -12,7 +12,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   DEVOPS: '#EAB308',
 };
 
-export default function TechStack() {
+export default function TechStack({ techStack = TECH_STACK }: { techStack?: typeof TECH_STACK }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
@@ -25,7 +25,7 @@ export default function TechStack() {
       </motion.div>
 
       <div className="space-y-6">
-        {Object.entries(TECH_STACK).map(([category, techs], catIdx) => (
+        {Object.entries(techStack).map(([category, techs], catIdx) => (
           <motion.div key={category}
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}

@@ -23,9 +23,9 @@ export const TECH_BADGES = [
 ];
 
 export const STATS = [
-  { value: '4.8+', label: 'Years of experience in software development' },
-  { value: '25+',  label: 'Successful projects delivered' },
-  { value: '55k+', label: 'Users impacted through my work' },
+  { value: '1.8+', label: 'Years of experience in software development' },
+  { value: '5+',  label: 'Successful projects delivered' },
+  { value: '15k+', label: 'Users impacted through my work' },
 ];
 
 export const PROJECTS = [

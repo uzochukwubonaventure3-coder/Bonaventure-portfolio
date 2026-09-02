@@ -1,0 +1,13 @@
+{
+  "name": "Bonaventure Chidalu | Fullstack Developer",
+  "short_name": "BC Portfolio",
+  "description": "Fullstack software engineer based in FCT Abuja, Nigeria.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#F97316",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

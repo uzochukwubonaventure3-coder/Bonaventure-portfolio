@@ -74,7 +74,7 @@ export default function AdminTestimonials() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ approved: true, featured: true }),
     });
-    toast.success(`✅ "${t.name}'s" testimonial approved and published!`);
+    toast.success(` "${t.name}'s" testimonial approved and published!`);
     load();
   }
 
@@ -125,7 +125,7 @@ export default function AdminTestimonials() {
       <div className="flex gap-1 mb-6 bg-[#0D0D0D] border border-[#161616] rounded-xl p-1 w-fit">
         <button onClick={() => setActiveTab('pending')}
           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${activeTab === 'pending' ? 'bg-[#F97316] text-white' : 'text-[#555] hover:text-white'}`}>
-          ⏳ Pending
+           Pending
           {pending.length > 0 && (
             <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-bold ${activeTab === 'pending' ? 'bg-white/20 text-white' : 'bg-red-500/20 text-red-400'}`}>
               {pending.length}
@@ -134,7 +134,7 @@ export default function AdminTestimonials() {
         </button>
         <button onClick={() => setActiveTab('approved')}
           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${activeTab === 'approved' ? 'bg-[#F97316] text-white' : 'text-[#555] hover:text-white'}`}>
-          ✅ Approved ({approved.length})
+           Approved ({approved.length})
         </button>
       </div>
 
@@ -152,7 +152,7 @@ export default function AdminTestimonials() {
         <div className="flex justify-center py-20"><Loader2 className="animate-spin text-[#F97316]" /></div>
       ) : displayed.length === 0 ? (
         <div className="text-center py-20 text-[#333]">
-          <p className="text-4xl mb-3">{activeTab === 'pending' ? '🎉' : '⭐'}</p>
+          <p className="text-4xl mb-3">{activeTab === 'pending' ? '' : ''}</p>
           <p className="text-sm">
             {activeTab === 'pending' ? 'No pending testimonials — you\'re all caught up!' : 'No approved testimonials yet.'}
           </p>
@@ -188,7 +188,7 @@ export default function AdminTestimonials() {
                       )}
                     </div>
                     <p className="text-xs text-[#555] mb-2">{t.title}</p>
-                    <p className="text-[#888] text-xs leading-relaxed line-clamp-2">"{t.quote}"</p>
+                    <p className="text-[#888] text-xs leading-relaxed line-clamp-2">&quot;{t.quote}&quot;</p>
                     <p className="text-[#333] text-[10px] mt-2">
                       Submitted {formatDistanceToNow(new Date(t.createdAt), { addSuffix: true })}
                     </p>

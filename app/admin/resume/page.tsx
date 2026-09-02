@@ -173,7 +173,7 @@ export default function AdminResume() {
 
           <div className="bg-[#0D0D0D] border border-[#161616] rounded-2xl p-4">
             <p className="text-xs text-[#555] leading-relaxed">
-              💡 <strong className="text-[#888]">Tip:</strong> For Google Drive, set sharing to "Anyone with the link can view", then paste the link here. The "Download Resume" button on your homepage will use this URL.
+              💡 <strong className="text-[#888]">Tip:</strong> For Google Drive, set sharing to &quot;Anyone with the link can view&quot;, then paste the link here. The &quot;Download Resume&quot; button on your homepage will use this URL.
             </p>
           </div>
         </div>

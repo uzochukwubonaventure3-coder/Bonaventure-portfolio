@@ -123,7 +123,7 @@ export default function WorkPage() {
                     I&apos;m always open to new projects. Let&apos;s build something amazing together.
                   </p>
                   <a
-                    href="https://wa.me/2349064779856"
+                    href="https://wa.me/2349049269679"
                     className="flex items-center gap-1 text-xs text-[#F97316] font-semibold hover:gap-2 transition-all"
                   >
                     Start a project <ArrowRight size={12} />

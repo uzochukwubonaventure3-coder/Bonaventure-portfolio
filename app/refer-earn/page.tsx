@@ -217,7 +217,7 @@ export default function ReferEarnPage() {
               {submitted && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 bg-green-500/10 border border-green-500/20 rounded-2xl p-6 text-center">
                   <CheckCircle size={28} className="text-green-400 mx-auto mb-3" />
-                  <p className="text-white font-semibold">Referral submitted! 🎉</p>
+                  <p className="text-white font-semibold">Referral submitted! </p>
                   <p className="text-[#666] text-sm mt-1">I&apos;ll follow up within 24 hours and keep you posted on your commission.</p>
                 </motion.div>
               )}

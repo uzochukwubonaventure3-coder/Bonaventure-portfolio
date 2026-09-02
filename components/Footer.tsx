@@ -120,7 +120,7 @@ export default function Footer() {
             <Link href="/report-bug" className="text-[#F97316] font-semibold hover:underline">
               let me know
             </Link>
-            . Your feedback helps me grow! 🙏
+            . Your feedback helps me grow! 
           </p>
           <p className="text-xs text-[#333] shrink-0">© {new Date().getFullYear()} Bonaventure Chidalu</p>
         </div>

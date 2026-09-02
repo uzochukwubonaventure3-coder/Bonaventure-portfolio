@@ -6,19 +6,22 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/data';
 import Link from 'next/link';
 
-export default function Testimonials() {
+export default function Testimonials({ testimonials = TESTIMONIALS }: { testimonials?: typeof TESTIMONIALS }) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const intervalRef = useRef<NodeJS.Timeout>();
 
   const go = (idx: number, dir: number) => { setDirection(dir); setCurrent(idx); };
-  const prev = () => go((current - 1 + TESTIMONIALS.length) % TESTIMONIALS.length, -1);
-  const next = () => go((current + 1) % TESTIMONIALS.length, 1);
+  const prev = () => go((current - 1 + testimonials.length) % testimonials.length, -1);
+  const next = () => go((current + 1) % testimonials.length, 1);
 
   useEffect(() => {
-    intervalRef.current = setInterval(next, 6000);
+    intervalRef.current = setInterval(() => {
+      setDirection(1);
+      setCurrent(index => (index + 1) % testimonials.length);
+    }, 6000);
     return () => clearInterval(intervalRef.current);
-  }, [current]);
+  }, [testimonials.length]);
 
   const variants = {
     enter:  (d: number) => ({ x: d > 0 ? 100 : -100, opacity: 0, scale: 0.96 }),
@@ -26,7 +29,7 @@ export default function Testimonials() {
     exit:   (d: number) => ({ x: d < 0 ? 100 : -100, opacity: 0, scale: 0.96 }),
   };
 
-  const t = TESTIMONIALS[current];
+  const t = testimonials[current];
 
   return (
     <section id="testimonials" className="section max-w-7xl mx-auto px-6 lg:px-8">
@@ -74,7 +77,7 @@ export default function Testimonials() {
 
         {/* Dot pagination */}
         <div className="flex items-center justify-center gap-2 mt-8">
-          {TESTIMONIALS.map((_, i) => (
+          {testimonials.map((_, i) => (
             <button key={i} onClick={() => go(i, i > current ? 1 : -1)}
               className={`transition-all rounded-full ${i === current ? 'w-8 h-2 bg-[#F97316]' : 'w-2 h-2 bg-[#333] hover:bg-[#555]'}`} />
           ))}

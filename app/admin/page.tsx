@@ -87,7 +87,7 @@ export default function AdminDashboard() {
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-white">Welcome back, {adminName} 👋</h1>
+            <h1 className="text-2xl font-bold text-white">Welcome back, {adminName} </h1>
             <p className="text-[#555] text-sm mt-1">
               {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
@@ -184,9 +184,9 @@ export default function AdminDashboard() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-white text-xs font-semibold truncate">{t.name}</p>
-                    <p className="text-[#555] text-[10px] truncate">"{t.quote?.slice(0, 40)}..."</p>
+                    <p className="text-[#555] text-[10px] truncate">&quot;{t.quote?.slice(0, 40)}...&quot;</p>
                   </div>
-                  <span className="text-[9px] text-yellow-400 shrink-0">⏳</span>
+                  <span className="text-[9px] text-yellow-400 shrink-0"></span>
                 </Link>
               ))
             )}

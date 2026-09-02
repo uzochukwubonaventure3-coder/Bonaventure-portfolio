@@ -19,25 +19,25 @@ const CATEGORY_COLORS: Record<string, string> = {
   DATABASE: '#A855F7', DEVOPS: '#EAB308', TOOLS: '#F472B6',
 };
 
-const EMPTY = { name: '', icon: '⚡', category: 'FRONTEND', order: 0 };
+const EMPTY = { name: '', icon: '', category: 'FRONTEND', order: 0 };
 
 // Default tech stack data (used when no DB data exists)
 const DEFAULT_STACK: Omit<TechItem, 'id'>[] = [
-  { name: 'Vue.js', icon: '🟢', category: 'FRONTEND', order: 1 },
-  { name: 'Tailwind CSS', icon: '🎨', category: 'FRONTEND', order: 2 },
+  { name: 'Vue.js', icon: '', category: 'FRONTEND', order: 1 },
+  { name: 'Tailwind CSS', icon: '', category: 'FRONTEND', order: 2 },
   { name: 'React', icon: '⚛️', category: 'FRONTEND', order: 3 },
   { name: 'Next.js', icon: '▲', category: 'FRONTEND', order: 4 },
-  { name: 'TypeScript', icon: '🔷', category: 'FRONTEND', order: 5 },
-  { name: 'Laravel', icon: '🔴', category: 'BACKEND', order: 1 },
-  { name: 'PHP', icon: '🐘', category: 'BACKEND', order: 2 },
-  { name: 'Node.js', icon: '🟩', category: 'BACKEND', order: 3 },
-  { name: 'React Native', icon: '📱', category: 'MOBILE', order: 1 },
-  { name: 'PostgreSQL', icon: '🐘', category: 'DATABASE', order: 1 },
-  { name: 'MySQL', icon: '🐬', category: 'DATABASE', order: 2 },
-  { name: 'Redis', icon: '🔴', category: 'DATABASE', order: 3 },
-  { name: 'Docker', icon: '🐳', category: 'DEVOPS', order: 1 },
-  { name: 'AWS', icon: '☁️', category: 'DEVOPS', order: 2 },
-  { name: 'Git', icon: '🌿', category: 'DEVOPS', order: 3 },
+  { name: 'TypeScript', icon: '', category: 'FRONTEND', order: 5 },
+  { name: 'Laravel', icon: '', category: 'BACKEND', order: 1 },
+  { name: 'PHP', icon: '', category: 'BACKEND', order: 2 },
+  { name: 'Node.js', icon: '', category: 'BACKEND', order: 3 },
+  { name: 'React Native', icon: '', category: 'MOBILE', order: 1 },
+  { name: 'PostgreSQL', icon: '', category: 'DATABASE', order: 1 },
+  { name: 'MySQL', icon: '', category: 'DATABASE', order: 2 },
+  { name: 'Redis', icon: '', category: 'DATABASE', order: 3 },
+  { name: 'Docker', icon: '', category: 'DEVOPS', order: 1 },
+  { name: 'AWS', icon: '', category: 'DEVOPS', order: 2 },
+  { name: 'Git', icon: '', category: 'DEVOPS', order: 3 },
 ];
 
 export default function AdminTechStack() {
@@ -204,7 +204,7 @@ export default function AdminTechStack() {
                   <div>
                     <label className="block text-xs text-[#555] mb-1.5 uppercase tracking-wider">Icon</label>
                     <input value={form.icon} onChange={e => setForm({ ...form, icon: e.target.value })}
-                      placeholder="⚡"
+                      placeholder=""
                       className="w-full bg-[#111] border border-[#1A1A1A] rounded-xl px-3 py-2.5 text-white text-sm text-center focus:outline-none focus:border-[#F97316]/40" />
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export default function AdminTechStack() {
 
                 {/* Preview */}
                 <div className="bg-[#111] border border-[#1A1A1A] rounded-xl p-3 flex items-center gap-2">
-                  <span className="text-xl">{form.icon || '⚡'}</span>
+                  <span className="text-xl">{form.icon || ''}</span>
                   <span className="text-sm text-[#ccc]">{form.name || 'Skill Name'}</span>
                   <span className="ml-auto text-[9px] px-2 py-0.5 rounded-full font-bold"
                     style={{ background: `${CATEGORY_COLORS[form.category]}15`, color: CATEGORY_COLORS[form.category] }}>

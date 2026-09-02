@@ -1,20 +1,9 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { NextIntlClientProvider } from 'next-intl';
 
-export function IntlProvider({
-  children,
-  locale,
-  messages,
-}: {
-  children: ReactNode;
-  locale: string;
-  messages: any;
-}) {
-  return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
-    </NextIntlClientProvider>
-  );
+// Language is handled client-side in Navbar component
+// next-intl removed to fix routing conflicts
+export function IntlProvider({ children }: { children: ReactNode }) {
+  return <>{children}</>;
 }

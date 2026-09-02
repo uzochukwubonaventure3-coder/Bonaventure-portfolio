@@ -2,16 +2,27 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, Zap, Package, ChevronRight, CheckCircle, Loader2, Phone, Mail } from 'lucide-react';
+import {
+  MessageCircle,
+  Zap,
+  Package,
+  ChevronRight,
+  CheckCircle,
+  Loader2,
+  Phone,
+  Mail,
+  Rocket,
+  ShoppingBag,
+} from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { BackToTop, CustomCursor } from '@/components/UI';
 
 const ACTIONS = [
-  { label: 'Start a Project', icon: '🚀', href: '#form', color: '#F97316' },
-  { label: 'Book Consultation', icon: '⚡', href: '/contact/consult', color: '#3B82F6' },
-  { label: 'Browse Products', icon: '🛍️', href: '/work', color: '#A855F7' },
+  { label: 'Start a Project', icon: Rocket, href: '#form', color: '#F97316' },
+  { label: 'Book Consultation', icon: Zap, href: '/contact/consult', color: '#3B82F6' },
+  { label: 'Browse Products', icon: ShoppingBag, href: '/work', color: '#A855F7' },
 ];
 
 export default function ContactPage() {
@@ -57,7 +68,7 @@ export default function ContactPage() {
                 <div className="w-20 h-20 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle size={36} className="text-green-400" />
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-3">Message sent! 🎉</h2>
+                <h2 className="text-2xl font-bold text-white mb-3">Message sent! </h2>
                 <p className="text-[#666] mb-8">I&apos;ll get back to you within 24 hours.</p>
                 <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#F97316] text-white font-semibold hover:bg-[#EA6C0A] transition-all">
                   Back to Home
@@ -78,17 +89,30 @@ export default function ContactPage() {
 
                 {/* Action pills */}
                 <div className="flex flex-wrap justify-center gap-3 mb-6">
-                  {ACTIONS.map(action => (
-                    <Link key={action.label} href={action.href}
-                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#111] border border-[#1E1E1E] text-sm text-[#888] hover:text-white hover:border-[#2A2A2A] transition-all">
-                      <span>{action.icon}</span> {action.label}
-                    </Link>
-                  ))}
+                  {ACTIONS.map(action => {
+                      const Icon = action.icon;
+
+                      return (
+                        <Link
+                          key={action.label}
+                          href={action.href}
+                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#111] border border-[#1E1E1E] text-sm text-[#888] hover:text-white hover:border-[#2A2A2A] transition-all"
+                        >
+                          <Icon
+                            size={16}
+                            strokeWidth={2}
+                            style={{ color: action.color }}
+                          />
+
+                          {action.label}
+                        </Link>
+                      );
+                    })}
                 </div>
 
                 {/* WhatsApp CTA — green button matching Image 6 */}
                 <div className="flex justify-center mb-8">
-                  <a href="https://wa.me/2349064779856?text=Hi%20Bonaventure%2C%20I%27m%20interested%20in%20working%20with%20you!"
+                  <a href="https://wa.me/2349049269679?text=Hi%20Bonaventure%2C%20I%27m%20interested%20in%20working%20with%20you!"
                     target="_blank" rel="noopener noreferrer"
                     className="flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white font-semibold text-sm hover:bg-[#1ebe5a] transition-all shadow-lg shadow-[#25D366]/20">
                     <MessageCircle size={18} /> Chat on WhatsApp
@@ -143,20 +167,20 @@ export default function ContactPage() {
 
                 {/* Contact info */}
                 <div className="mt-6 grid grid-cols-2 gap-3">
-                  <a href="mailto:bonaventurechidalu@gmail.com"
+                  <a href="mailto:uzochukwubonaventure3@gmail.com"
                     className="flex items-center gap-3 bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl p-4 hover:border-[#222] transition-colors">
                     <Mail size={16} className="text-[#F97316] shrink-0" />
                     <div className="min-w-0">
                       <p className="text-[10px] text-[#444] uppercase tracking-wider">Email</p>
-                      <p className="text-white text-xs font-semibold truncate">bonaventurechidalu@gmail.com</p>
+                      <p className="text-white text-xs font-semibold truncate">uzochukwubonaventure3@gmail.com</p>
                     </div>
                   </a>
-                  <a href="https://wa.me/2349064779856" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/2349049269679" target="_blank" rel="noopener noreferrer"
                     className="flex items-center gap-3 bg-[#0F0F0F] border border-[#1A1A1A] rounded-2xl p-4 hover:border-[#222] transition-colors">
                     <Phone size={16} className="text-[#25D366] shrink-0" />
                     <div className="min-w-0">
                       <p className="text-[10px] text-[#444] uppercase tracking-wider">WhatsApp</p>
-                      <p className="text-white text-xs font-semibold">+234 906 477 9856</p>
+                      <p className="text-white text-xs font-semibold">+234 904 926 9679</p>
                     </div>
                   </a>
                 </div>
