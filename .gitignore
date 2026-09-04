@@ -22,6 +22,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+next-dev*.log
+build-output.txt
+gh.zip
 
 # local env files
 .env*.local
@@ -34,3 +37,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.SETUP_INSTRUCTIONS.md

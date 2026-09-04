@@ -12,7 +12,12 @@ export async function GET() {
       .order('category', { ascending: true })
       .order('order', { ascending: true });
     if (error) return err(error.message, 500);
-    return ok(data ?? []);
+    const skills = data ?? [];
+    const legacyIcons = skills.filter(skill => skill.icon && !/^https?:\/\//.test(skill.icon));
+    await Promise.all(legacyIcons.map(skill =>
+      supabase.from('tech_skills').update({ icon: '' }).eq('id', skill.id)
+    ));
+    return ok(skills.map(skill => ({ ...skill, icon: '' })));
   } catch (e: any) {
     return err(e.message, 500);
   }
@@ -27,7 +32,7 @@ export async function POST(req: NextRequest) {
     const supabase = createAdminClient();
     const { data, error } = await supabase
       .from('tech_skills')
-      .insert(body)
+      .insert({ name: body.name, category: body.category, order: body.order ?? 0, icon: '' })
       .select()
       .single();
     if (error) return err(error.message, 500);

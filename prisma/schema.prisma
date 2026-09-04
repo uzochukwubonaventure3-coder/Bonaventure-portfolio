@@ -197,7 +197,7 @@ model social_posts {
 model TechSkill {
   id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   name      String
-  icon      String   @default("⚡")
+  icon      String   @default("")
   category  String
   order     Int      @default(0)
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)

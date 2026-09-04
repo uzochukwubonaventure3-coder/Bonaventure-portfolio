@@ -56,7 +56,7 @@ async function getHomepageData() {
         tags: item.tags,
         bullets: item.bullets,
       })) : EXPERIENCE,
-      techStack: techSkills.length ? techStack : TECH_STACK,
+      techStack,
       testimonials: testimonials.length ? testimonials.map((testimonial, index) => ({
         id: index,
         quote: testimonial.quote,
@@ -70,7 +70,7 @@ async function getHomepageData() {
         { value: settingsMap.stat_projects || STATS[1].value, label: STATS[1].label },
         { value: settingsMap.stat_users || STATS[2].value, label: STATS[2].label },
       ],
-      techBadges: techSkills.length ? techSkills.slice(0, 8).map(skill => ({ name: skill.name, icon: skill.icon })) : TECH_BADGES,
+      techBadges: techSkills.slice(0, 8).map(skill => ({ name: skill.name, icon: '' })),
     };
   } catch (error) {
     console.error('Failed to load homepage data:', error);

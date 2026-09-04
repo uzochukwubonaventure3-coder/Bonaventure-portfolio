@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, ArrowRight, Download } from 'lucide-react';
+import TechIcon from './TechIcon';
 import { gsap } from 'gsap';
 import Robot from './Robot';
 import { STATS, TECH_BADGES } from '@/lib/data';
@@ -83,9 +84,7 @@ export default function Hero({ stats = STATS, techBadges = TECH_BADGES }: { stat
               {techBadges.map(tech => (
                 <div key={tech.name}
                   className="flex items-center gap-2 px-3 py-2.5 bg-[#111] border border-[#1E1E1E] rounded-full text-xs text-[#ccc] font-medium">
-                  <img src={tech.icon} alt={tech.name} width={14} height={14}
-                    className="w-3.5 h-3.5 object-contain shrink-0"
-                    onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                  <TechIcon name={tech.name} className="w-3.5 h-3.5 shrink-0" />
                   <span className="truncate">{tech.name}</span>
                 </div>
               ))}
@@ -135,9 +134,7 @@ export default function Hero({ stats = STATS, techBadges = TECH_BADGES }: { stat
               {techBadges.map(tech => (
                 <span key={tech.name}
                   className="flex items-center gap-2 px-4 py-2.5 bg-[#111] border border-[#1E1E1E] rounded-full text-sm text-[#ccc] font-semibold hover:border-[#2A2A2A] hover:text-white transition-all">
-                  <img src={tech.icon} alt={tech.name} width={16} height={16}
-                    className="w-4 h-4 object-contain"
-                    onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                  <TechIcon name={tech.name} className="w-4 h-4 shrink-0" />
                   {tech.name}
                 </span>
               ))}

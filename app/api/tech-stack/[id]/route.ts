@@ -11,7 +11,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     const supabase = createAdminClient();
     const { data, error } = await supabase
       .from('tech_skills')
-      .update(body)
+      .update({ name: body.name, category: body.category, order: body.order ?? 0, icon: '' })
       .eq('id', params.id)
       .select()
       .single();

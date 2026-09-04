@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { TECH_STACK } from '@/lib/data';
+import TechIcon from '@/components/TechIcon';
 
 const CATEGORY_COLORS: Record<string, string> = {
   FRONTEND: '#3B82F6',
@@ -43,16 +44,7 @@ export default function TechStack({ techStack = TECH_STACK }: { techStack?: type
                   whileHover={{ scale: 1.06, y: -2 }}
                   className="flex items-center gap-2 px-4 py-2 bg-[#111] border border-[#1E1E1E] rounded-full text-sm text-[#ccc] cursor-default transition-all hover:border-[#2A2A2A] hover:text-white group"
                 >
-                  {/* Real logo from SimpleIcons CDN */}
-                  <img
-                    src={tech.icon}
-                    alt={tech.name}
-                    width={16}
-                    height={16}
-                    className="w-4 h-4 object-contain group-hover:scale-110 transition-transform"
-                    loading="lazy"
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                  />
+                  <TechIcon name={tech.name} className="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform" />
                   <span>{tech.name}</span>
                 </motion.div>
               ))}

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Pencil, Trash2, X, Loader2, GripVertical, Save } from 'lucide-react';
 import toast from 'react-hot-toast';
+import TechIcon from '@/components/TechIcon';
 
 interface TechItem {
   id: string;
@@ -25,8 +26,8 @@ const EMPTY = { name: '', icon: '', category: 'FRONTEND', order: 0 };
 const DEFAULT_STACK: Omit<TechItem, 'id'>[] = [
   { name: 'Vue.js', icon: '', category: 'FRONTEND', order: 1 },
   { name: 'Tailwind CSS', icon: '', category: 'FRONTEND', order: 2 },
-  { name: 'React', icon: '⚛️', category: 'FRONTEND', order: 3 },
-  { name: 'Next.js', icon: '▲', category: 'FRONTEND', order: 4 },
+  { name: 'React', icon: '', category: 'FRONTEND', order: 3 },
+  { name: 'Next.js', icon: '', category: 'FRONTEND', order: 4 },
   { name: 'TypeScript', icon: '', category: 'FRONTEND', order: 5 },
   { name: 'Laravel', icon: '', category: 'BACKEND', order: 1 },
   { name: 'PHP', icon: '', category: 'BACKEND', order: 2 },
@@ -157,7 +158,7 @@ export default function AdminTechStack() {
                   {catItems.map(item => (
                     <motion.div key={item.id} layout
                       className="group flex items-center gap-2.5 bg-[#111] border border-[#1A1A1A] rounded-xl px-3 py-2.5 hover:border-[#222] transition-all">
-                      <span className="text-lg shrink-0">{item.icon}</span>
+                      <TechIcon name={item.name} className="w-5 h-5 shrink-0" />
                       <span className="text-sm text-[#ccc] truncate flex-1">{item.name}</span>
                       <div className="hidden group-hover:flex items-center gap-1 shrink-0">
                         <button onClick={() => openEdit(item)} className="p-1 text-[#555] hover:text-white transition-colors">
@@ -223,7 +224,7 @@ export default function AdminTechStack() {
 
                 {/* Preview */}
                 <div className="bg-[#111] border border-[#1A1A1A] rounded-xl p-3 flex items-center gap-2">
-                  <span className="text-xl">{form.icon || ''}</span>
+                  <TechIcon name={form.name || 'Technology'} className="w-5 h-5 shrink-0" />
                   <span className="text-sm text-[#ccc]">{form.name || 'Skill Name'}</span>
                   <span className="ml-auto text-[9px] px-2 py-0.5 rounded-full font-bold"
                     style={{ background: `${CATEGORY_COLORS[form.category]}15`, color: CATEGORY_COLORS[form.category] }}>
