@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Eye, Calendar, ExternalLink, Hash, Sparkles, Share2, BookOpen } from 'lucide-react';
@@ -18,6 +19,13 @@ interface Props { post: Post; related: Post[] }
 
 export default function PostContent({ post, related }: Props) {
   const color = SECTION_COLORS[post.section] ?? '#F97316';
+
+  useEffect(() => {
+    const viewKey = `post-viewed:${post.id}`;
+    if (sessionStorage.getItem(viewKey)) return;
+    sessionStorage.setItem(viewKey, '1');
+    fetch(`/api/posts/${encodeURIComponent(post.slug)}`, { method: 'GET' }).catch(() => {});
+  }, [post.id, post.slug]);
 
   const share = () => {
     if (navigator.share) {
