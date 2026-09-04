@@ -69,8 +69,7 @@ export default function UsesPage() {
                       <div key={item.name}
                         className="flex items-center gap-4 bg-[#0F0F0F] border border-[#1A1A1A] rounded-xl px-4 py-3 hover:border-[#222] transition-colors">
                         <div className="w-9 h-9 rounded-xl bg-[#1A1A1A] border border-[#222] flex items-center justify-center shrink-0">
-                          <img src={item.icon} alt={item.name} width={18} height={18} className="w-4.5 h-4.5 object-contain"
-                            onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                          <img src={item.icon} alt={item.name} width={18} height={18} className="w-4.5 h-4.5 object-contain" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="font-bold text-white text-sm">{item.name}</p>
