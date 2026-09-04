@@ -45,7 +45,7 @@ export default function BentoGrid() {
 
   return (
     <section ref={ref} className="section max-w-7xl mx-auto px-5 lg:px-8">
-      <div className="flex flex-col gap-4 md:grid md:grid-cols-3 md:gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
 
         {/* 1 — Let's Build Together */}
         <motion.div variants={cv(0)} initial="hidden" animate={inView ? 'show' : 'hidden'}

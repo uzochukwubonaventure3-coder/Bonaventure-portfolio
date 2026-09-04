@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import { BackToTop, CustomCursor } from '@/components/UI';
 import Experience from '@/components/Experience';
 import TechStack from '@/components/TechStack';
+import { EXPERIENCE, TECH_STACK } from '@/lib/data';
 
 const values = [
   { icon: Zap,    color: '#F97316', title: 'Fast Delivery',     desc: 'I ship on time. Always. Deadlines are a commitment, not a suggestion.' },
@@ -17,12 +18,26 @@ const values = [
 
 export default function AboutPage() {
   const [profilePic, setProfilePic] = useState<string | null>(null);
+  const [experience, setExperience] = useState<typeof EXPERIENCE>(EXPERIENCE);
+  const [techStack, setTechStack] = useState<typeof TECH_STACK>(TECH_STACK);
 
   useEffect(() => {
-    fetch('/api/stats')
-      .then(r => r.json())
-      .then(d => { if (d.data?.profile_picture) setProfilePic(d.data.profile_picture); })
-      .catch(() => {});
+    Promise.all([
+      fetch('/api/stats').then(r => r.json()),
+      fetch('/api/experience').then(r => r.json()),
+      fetch('/api/tech-stack').then(r => r.json()),
+    ]).then(([stats, experienceData, techData]) => {
+      if (stats.data?.profile_picture) setProfilePic(stats.data.profile_picture);
+      if (Array.isArray(experienceData.data)) setExperience(experienceData.data);
+      if (Array.isArray(techData.data)) {
+        const grouped = { FRONTEND: [], BACKEND: [], MOBILE: [], DATABASE: [], DEVOPS: [] } as typeof TECH_STACK;
+        techData.data.forEach((skill: { name: string; category: string; icon: string }) => {
+          const category = skill.category.toUpperCase() as keyof typeof grouped;
+          if (category in grouped) grouped[category].push({ name: skill.name, icon: skill.icon });
+        });
+        setTechStack(grouped);
+      }
+    }).catch(() => {});
   }, []);
 
   return (
@@ -111,9 +126,9 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <Experience />
+          <Experience experience={experience} />
           <div className="mt-12">
-            <TechStack />
+            <TechStack techStack={techStack} />
           </div>
         </div>
       </main>

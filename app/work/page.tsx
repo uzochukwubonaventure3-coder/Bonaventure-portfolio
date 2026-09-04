@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, Rocket } from 'lucide-react';
 import Link from 'next/link';
@@ -76,10 +76,39 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState('All projects');
+  const [projects, setProjects] = useState<typeof PROJECTS>(PROJECTS);
+
+  useEffect(() => {
+    fetch('/api/projects?limit=100')
+      .then(r => r.json())
+      .then(d => {
+        if (!Array.isArray(d.data)) return;
+        setProjects(d.data.map((project: any) => ({
+          id: project.id,
+          title: project.title,
+          url: project.url || '',
+          date: project.date || '',
+          tags: project.tags || [],
+          description: project.description || '',
+          image: project.imageUrl || '',
+          category: project.categories || [],
+          link: project.liveUrl || project.githubUrl || '#',
+        })));
+      })
+      .catch(() => {});
+  }, []);
 
   const filtered = activeCategory === 'All projects'
-    ? PROJECTS
-    : PROJECTS.filter(p => p.category.includes(activeCategory));
+    ? projects
+    : projects.filter(p => p.category.includes(activeCategory));
+
+  const categories = [
+    { label: 'All projects', count: projects.length },
+    ...Array.from(new Set(projects.flatMap(project => project.category))).map(label => ({
+      label,
+      count: projects.filter(project => project.category.includes(label)).length,
+    })),
+  ];
 
   return (
     <>
@@ -93,7 +122,7 @@ export default function WorkPage() {
               <div className="bg-[#111] border border-[#1E1E1E] rounded-2xl p-4 sticky top-28">
                 <p className="text-[10px] uppercase tracking-widest text-[#444] mb-3 px-2">Categories</p>
                 <nav className="space-y-1">
-                  {CATEGORIES.map((cat) => (
+                  {categories.map((cat) => (
                     <button
                       key={cat.label}
                       onClick={() => setActiveCategory(cat.label)}

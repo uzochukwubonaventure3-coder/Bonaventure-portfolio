@@ -13,7 +13,7 @@ import { PROJECTS, EXPERIENCE, TECH_STACK, TESTIMONIALS, STATS, TECH_BADGES } fr
 export const dynamic = 'force-dynamic';
 
 async function getHomepageData() {
-  if (!hasDatabaseEnv()) return { projects: PROJECTS, experience: EXPERIENCE, techStack: TECH_STACK, testimonials: TESTIMONIALS, stats: STATS, techBadges: TECH_BADGES };
+  if (!hasDatabaseEnv()) return { projects: PROJECTS, experience: EXPERIENCE, techStack: TECH_STACK, testimonials: TESTIMONIALS, stats: STATS, techBadges: TECH_BADGES, content: {} };
 
   try {
     const [projects, experience, techSkills, testimonials, settings] = await Promise.all([
@@ -66,15 +66,16 @@ async function getHomepageData() {
         initials: testimonial.initials,
       })) : TESTIMONIALS,
       stats: [
-        { value: settingsMap.stat_experience || STATS[0].value, label: STATS[0].label },
+        { value: settingsMap.stat_years || STATS[0].value, label: STATS[0].label },
         { value: settingsMap.stat_projects || STATS[1].value, label: STATS[1].label },
         { value: settingsMap.stat_users || STATS[2].value, label: STATS[2].label },
       ],
       techBadges: techSkills.slice(0, 8).map(skill => ({ name: skill.name, icon: '' })),
+      content: settingsMap,
     };
   } catch (error) {
     console.error('Failed to load homepage data:', error);
-    return { projects: PROJECTS, experience: EXPERIENCE, techStack: TECH_STACK, testimonials: TESTIMONIALS, stats: STATS, techBadges: TECH_BADGES };
+    return { projects: PROJECTS, experience: EXPERIENCE, techStack: TECH_STACK, testimonials: TESTIMONIALS, stats: STATS, techBadges: TECH_BADGES, content: {} };
   }
 }
 
@@ -86,14 +87,14 @@ export default async function Home() {
       <CustomCursor />
       <Navbar />
       <main className="md:cursor-none">
-        <Hero stats={data.stats} techBadges={data.techBadges} />
+        <Hero stats={data.stats} techBadges={data.techBadges} content={data.content} />
         <Projects projects={data.projects} />
         <BentoGrid />
         <Experience experience={data.experience} />
         <TechStack techStack={data.techStack} />
         <Testimonials testimonials={data.testimonials} />
       </main>
-      <Footer />
+      <Footer content={data.content} />
       <BackToTop />
     </>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   MessageCircle,
@@ -27,9 +27,14 @@ const ACTIONS = [
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', budget: '', message: '' });
+  const [content, setContent] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    fetch('/api/stats').then(r => r.json()).then(d => setContent(d.data ?? {})).catch(() => {});
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,7 +74,7 @@ export default function ContactPage() {
                   <CheckCircle size={36} className="text-green-400" />
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-3">Message sent! </h2>
-                <p className="text-[#666] mb-8">I&apos;ll get back to you within 24 hours.</p>
+                <p className="text-[#666] mb-8">{content.contact_response_time || "I'll get back to you within 24 hours."}</p>
                 <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#F97316] text-white font-semibold hover:bg-[#EA6C0A] transition-all">
                   Back to Home
                 </Link>
@@ -83,7 +88,7 @@ export default function ContactPage() {
                   </div>
                   <h1 className="text-3xl font-bold text-white mb-3">Let&apos;s talk?</h1>
                   <p className="text-[#666] text-sm leading-relaxed max-w-sm mx-auto">
-                    Have a project in mind or just want to chat? I&apos;d love to hear from you! Send me a message and I&apos;ll get back to you as soon as possible.
+                    {content.contact_availability || "Have a project in mind or just want to chat? I'd love to hear from you! Send me a message and I'll get back to you as soon as possible."}
                   </p>
                 </div>
 

@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { MapPin, Github, Twitter, Linkedin } from 'lucide-react';
 
 const FOOTER_LINKS = {
@@ -31,7 +34,18 @@ const FOOTER_LINKS = {
   ],
 };
 
-export default function Footer() {
+const EMPTY_CONTENT: Record<string, string> = {};
+
+export default function Footer({ content = EMPTY_CONTENT }: { content?: Record<string, string> }) {
+  const [siteContent, setSiteContent] = useState(content);
+
+  useEffect(() => {
+    if (Object.keys(content).length > 0) return;
+    fetch('/api/stats').then(r => r.json()).then(data => {
+      if (data.data) setSiteContent(data.data);
+    }).catch(() => {});
+  }, [content]);
+
   return (
     <footer className="border-t border-[#111] mt-20 pb-20 md:pb-0">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-16">
@@ -40,10 +54,10 @@ export default function Footer() {
         <div className="mb-10">
           <p className="text-2xl font-bold text-[#F97316] mb-2">bccodesphere</p>
           <p className="text-sm text-[#666] leading-relaxed mb-3 max-w-xs">
-            Abuja&apos;s best full-stack web developer. Building fast, scalable, and SEO-optimized web applications.
+            {siteContent.footer_tagline || 'Abuja\'s best full-stack web developer. Building fast, scalable, and SEO-optimized web applications.'}
           </p>
           <div className="flex items-center gap-1.5 text-[#555] text-sm mb-4">
-            <MapPin size={13} /><span>FCT Abuja, Nigeria</span>
+            <MapPin size={13} /><span>{siteContent.hero_location || 'FCT Abuja, Nigeria'}</span>
           </div>
           <div className="flex items-center gap-2">
             <a href="https://github.com/bonaventurechidalu" target="_blank" rel="noopener noreferrer"
@@ -116,7 +130,7 @@ export default function Footer() {
       <div className="border-t border-[#0D0D0D] px-6 lg:px-8 py-5">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[#444] text-center sm:text-left">
-            Found a bug or something to improve?{' '}
+            {siteContent.footer_feedback || 'Found a bug or something to improve?'}{' '}
             <Link href="/report-bug" className="text-[#F97316] font-semibold hover:underline">
               let me know
             </Link>

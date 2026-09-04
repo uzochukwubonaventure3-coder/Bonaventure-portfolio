@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import { MapPin, Code2, BookOpen, Music, Coffee, Clock, ChevronRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
@@ -5,12 +8,16 @@ import Footer from '@/components/Footer';
 import { BackToTop, CustomCursor } from '@/components/UI';
 
 export default function MePage() {
+  const [content, setContent] = useState<Record<string, string>>({});
+  useEffect(() => {
+    fetch('/api/stats').then(r => r.json()).then(d => setContent(d.data ?? {})).catch(() => {});
+  }, []);
   const now = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   const items = [
-    { icon: MapPin, color: '#F97316', label: 'Location', value: 'FCT Abuja, Nigeria', sub: 'Open to remote work globally' },
-    { icon: Code2, color: '#3B82F6', label: 'Currently Building', value: 'Client projects + this portfolio', sub: 'Next.js, Laravel, Supabase stack' },
-    { icon: BookOpen, color: '#22C55E', label: 'Currently Reading', value: 'The Pragmatic Programmer', sub: 'By Andrew Hunt & David Thomas' },
-    { icon: Music, color: '#A855F7', label: 'Currently Listening', value: 'Lo-fi beats & Afrobeats', sub: 'Fuel for deep work sessions' },
+    { icon: MapPin, color: '#F97316', label: 'Location', value: content.me_location || 'FCT Abuja, Nigeria', sub: 'Open to remote work globally' },
+    { icon: Code2, color: '#3B82F6', label: 'Currently Building', value: content.me_building || 'Client projects + this portfolio', sub: content.me_building_sub || 'Next.js, Laravel, Supabase stack' },
+    { icon: BookOpen, color: '#22C55E', label: 'Currently Reading', value: content.me_reading || 'The Pragmatic Programmer', sub: content.me_reading_sub || 'By Andrew Hunt & David Thomas' },
+    { icon: Music, color: '#A855F7', label: 'Currently Listening', value: content.me_listening || 'Lo-fi beats & Afrobeats', sub: 'Fuel for deep work sessions' },
     { icon: Coffee, color: '#EAB308', label: 'Fuel', value: 'Too much coffee', sub: 'And sometimes green tea' },
   ];
 

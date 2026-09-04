@@ -14,7 +14,7 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
 };
 
-export default function Hero({ stats = STATS, techBadges = TECH_BADGES }: { stats?: typeof STATS; techBadges?: typeof TECH_BADGES }) {
+export default function Hero({ stats = STATS, techBadges = TECH_BADGES, content = {} }: { stats?: typeof STATS; techBadges?: typeof TECH_BADGES; content?: Record<string, string> }) {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -45,26 +45,24 @@ export default function Hero({ stats = STATS, techBadges = TECH_BADGES }: { stat
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
               </span>
-              <span className="text-sm text-[#888] font-medium">Available for remote work</span>
+              <span className="text-sm text-[#888] font-medium">{content.hero_tagline || 'Available for remote work'}</span>
             </motion.div>
 
             {/* Name — very large bold on mobile */}
             <motion.h1 variants={item} className="text-[3rem] sm:text-[3.5rem] font-extrabold leading-[0.95] tracking-tight mb-5">
-              <span className="text-[#F97316] block">Bonaventure</span>
-              <span className="text-[#F97316] block">Chidalu</span>
+              {(content.hero_name || 'Bonaventure Chidalu').split(' ').map((name, index) => (
+                <span key={`${name}-${index}`} className="text-[#F97316] block">{name}</span>
+              ))}
             </motion.h1>
 
             {/* Bio */}
             <motion.p variants={item} className="text-[#888] text-base leading-relaxed mb-2 max-w-sm">
-              Full-stack software engineer with experience in{' '}
-              <strong className="text-white font-bold">backend architecture</strong>,{' '}
-              <strong className="text-white font-bold">web development</strong>, and{' '}
-              <strong className="text-white font-bold">system scalability</strong>.
+              {content.hero_bio || 'Full-stack software engineer with experience in backend architecture, web development, and system scalability.'}
             </motion.p>
 
             {/* Location */}
             <motion.div variants={item} className="flex items-center gap-1.5 text-[#666] text-sm mb-7">
-              <MapPin size={13} /><span>FCT Abuja, Nigeria</span>
+              <MapPin size={13} /><span>{content.hero_location || 'FCT Abuja, Nigeria'}</span>
             </motion.div>
 
             {/* CTA buttons */}
@@ -100,23 +98,21 @@ export default function Hero({ stats = STATS, techBadges = TECH_BADGES }: { stat
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
               </span>
-              <span className="text-sm text-[#888] font-medium">Available for remote work</span>
+              <span className="text-sm text-[#888] font-medium">{content.hero_tagline || 'Available for remote work'}</span>
             </motion.div>
 
             <motion.h1 variants={item} className="text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.9] tracking-tight mb-6">
-              <span className="text-[#F97316] block">Bonaventure</span>
-              <span className="text-[#F97316] block">Chidalu</span>
+              {(content.hero_name || 'Bonaventure Chidalu').split(' ').map((name, index) => (
+                <span key={`${name}-${index}`} className="text-[#F97316] block">{name}</span>
+              ))}
             </motion.h1>
 
             <motion.p variants={item} className="text-[#888] text-lg leading-relaxed mb-3 max-w-lg">
-              Full-stack software engineer with experience in{' '}
-              <strong className="text-white font-bold">backend architecture</strong>,{' '}
-              <strong className="text-white font-bold">web development</strong>, and{' '}
-              <strong className="text-white font-bold">system scalability</strong>.
+              {content.hero_bio || 'Full-stack software engineer with experience in backend architecture, web development, and system scalability.'}
             </motion.p>
 
             <motion.div variants={item} className="flex items-center gap-1.5 text-[#666] text-sm mb-9">
-              <MapPin size={14} /><span>FCT Abuja, Nigeria</span>
+              <MapPin size={14} /><span>{content.hero_location || 'FCT Abuja, Nigeria'}</span>
             </motion.div>
 
             <motion.div variants={item} className="flex flex-wrap gap-3 mb-10">
