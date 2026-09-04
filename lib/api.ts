@@ -25,8 +25,7 @@ export function slugify(str: string): string {
     .trim();
 }
 
-export function estimateReadTime(content: string): string {
+export function estimateReadTime(content: string): number {
   const words = content.split(/\s+/).length;
-  const minutes = Math.ceil(words / 200);
-  return `${minutes} min read`;
+  return Math.max(1, Math.ceil(words / 200));
 }

@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
         coverId: coverId ?? null,
         category: category ?? 'General',
         tags: tags ?? [],
-        readTime: parseInt(readTime, 10) || 1,
+        readTime,
         published: published ?? false,
         featured: featured ?? false,
       },
