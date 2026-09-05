@@ -26,11 +26,22 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
+function createPrismaClient() {
+  const log: Array<'error' | 'warn'> = process.env.NODE_ENV === 'development' ? ['error', 'warn'] : ['error'];
+  const databaseUrl = getDatabaseUrl();
+
+  if (databaseUrl) {
+    return new PrismaClient({
+      datasources: { db: { url: databaseUrl } },
+      log,
+    });
+  }
+
+  return new PrismaClient({ log });
+}
+
 export const prisma =
   globalForPrisma.prisma ??
-  new PrismaClient({
-    datasources: { db: { url: getDatabaseUrl() } },
-    log: process.env.NODE_ENV === 'development' ? ['error', 'warn'] : ['error'],
-  });
+  createPrismaClient();
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
