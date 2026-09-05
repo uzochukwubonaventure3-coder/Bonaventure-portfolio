@@ -29,34 +29,21 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className="project-card group"
     >
-      {/* Browser mockup */}
-      <div className="relative h-52 bg-[#0D0D0D] overflow-hidden">
-        <div className="flex flex-col h-full">
-          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-[#1A1A1A] shrink-0">
-            <div className="w-2 h-2 rounded-full bg-[#FF5F57]" />
-            <div className="w-2 h-2 rounded-full bg-[#FEBC2E]" />
-            <div className="w-2 h-2 rounded-full bg-[#28C840]" />
-            <div className="flex-1 mx-2 h-4 bg-[#1A1A1A] rounded text-[9px] flex items-center px-2 text-[#444] font-mono">
-              {project.url}
-            </div>
-          </div>
-          <div className="flex-1 p-4">
-            <div className="h-5 bg-[#1A1A1A] rounded w-2/3 mb-2" />
-            <div className="h-3 bg-[#161616] rounded w-full mb-1.5" />
-            <div className="h-3 bg-[#161616] rounded w-5/6 mb-1.5" />
-            <div className="h-3 bg-[#161616] rounded w-4/6 mb-3" />
-            <div className="h-32 bg-[#161616] rounded-lg" />
-          </div>
-        </div>
+      <Link href={`/work/${project.id}`} className="relative block h-52 bg-[#0D0D0D] overflow-hidden">
+        {project.image ? (
+          <img src={project.image} alt={`${project.title} project preview`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-[#444]">No preview available</div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#111]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-3">
           <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white">
             <ExternalLink size={13} />
           </div>
         </div>
-      </div>
+      </Link>
 
       <div className="p-5">
-        <h3 className="font-bold text-white text-lg mb-0.5">{project.title}</h3>
+        <Link href={`/work/${project.id}`} className="font-bold text-white text-lg mb-0.5 hover:text-[#F97316] transition-colors block">{project.title}</Link>
         <p className="text-[#555] text-sm mb-3">{project.date}</p>
         <div className="flex flex-wrap gap-1.5 mb-3">
           {project.tags.slice(0, 3).map((tag) => (
@@ -65,10 +52,10 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
           {project.tags.length > 3 && <span className="tag-pill">+{project.tags.length - 3}</span>}
         </div>
         <p className="text-[#666] text-sm leading-relaxed mb-4">{project.description}</p>
-        <button className="flex items-center gap-1.5 text-sm text-[#888] hover:text-[#F97316] transition-colors group/btn">
+        <Link href={`/work/${project.id}`} className="flex items-center gap-1.5 text-sm text-[#888] hover:text-[#F97316] transition-colors group/btn">
           View Project
           <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
-        </button>
+        </Link>
       </div>
     </motion.div>
   );

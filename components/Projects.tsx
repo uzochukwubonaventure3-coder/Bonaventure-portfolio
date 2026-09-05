@@ -21,37 +21,23 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       className="project-card group"
     >
       {/* Screenshot */}
-      <div className="relative h-52 bg-[#0D0D0D] overflow-hidden">
-        <div className="absolute inset-0 flex flex-col">
-          {/* Browser chrome */}
-          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-[#1A1A1A] shrink-0">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-            <div className="flex-1 mx-2 h-4 bg-[#1A1A1A] rounded text-[9px] flex items-center px-2 text-[#555] font-mono">
-              {project.url}
-            </div>
-          </div>
-          {/* Mock content */}
-          <div className="flex-1 p-3 flex flex-col gap-2">
-            <div className="h-5 bg-[#1A1A1A] rounded w-3/4" />
-            <div className="h-3 bg-[#161616] rounded w-full" />
-            <div className="h-3 bg-[#161616] rounded w-5/6" />
-            <div className="h-3 bg-[#161616] rounded w-4/6" />
-            <div className="flex-1 bg-[#141414] rounded-lg mt-1" />
-          </div>
-        </div>
+      <Link href={`/work/${project.id}`} className="relative block h-52 bg-[#0D0D0D] overflow-hidden">
+        {project.image ? (
+          <img src={project.image} alt={`${project.title} project preview`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-[#444]">No preview available</div>
+        )}
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#111]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-3">
           <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-[#F97316] transition-colors cursor-pointer">
             <ExternalLink size={13} />
           </div>
         </div>
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="font-bold text-white text-lg mb-1">{project.title}</h3>
+        <Link href={`/work/${project.id}`} className="font-bold text-white text-lg mb-1 hover:text-[#F97316] transition-colors block">{project.title}</Link>
         <p className="text-[#555] text-sm mb-3">{project.date}</p>
         <div className="flex flex-wrap gap-1.5 mb-3">
           {project.tags.slice(0, 3).map(tag => (
@@ -60,10 +46,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.tags.length > 3 && <span className="tag-pill">+{project.tags.length - 3}</span>}
         </div>
         <p className="text-[#666] text-sm leading-relaxed mb-4">{project.description}</p>
-        <a href={project.link}
-          className="inline-flex items-center gap-2 text-sm text-[#888] hover:text-[#F97316] transition-colors group/link">
-          View Project →
-        </a>
+        <Link href={`/work/${project.id}`} className="inline-flex items-center gap-2 text-sm text-[#888] hover:text-[#F97316] transition-colors group/link">
+          View Project <ArrowRight size={13} className="group-hover/link:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </motion.div>
   );

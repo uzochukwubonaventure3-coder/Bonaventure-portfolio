@@ -38,7 +38,7 @@ export const PROJECTS = [
     description: 'Proforms is a dynamic form builder and data collection platform designed for rapid deployment. Built to streamline workflows, it enables users to create custom forms and manage submissions seamlessly.',
     image: '/projects/proforms.png',
     category: ['Backend', 'Fullstack'],
-    link: '#',
+    link: 'https://proforms.top',
   },
   {
     id: 'itrust',
@@ -49,7 +49,7 @@ export const PROJECTS = [
     description: 'A high-performance shipment and logistics platform based in Nigeria, featuring real-time tracking, role-based dashboards, and pixel-perfect implementation of complex UI designs.',
     image: '/projects/itrust.png',
     category: ['Fullstack', 'Backend'],
-    link: '#',
+    link: 'https://itrustrapidlogistics.com',
   },
   {
     id: 'edutech',
@@ -60,7 +60,7 @@ export const PROJECTS = [
     description: 'A learning management system for African educators with offline-first capability and interactive assessments.',
     image: '/projects/edutech.png',
     category: ['Frontend', 'Fullstack'],
-    link: '#',
+    link: 'https://edureach.ng',
   },
   {
     id: 'shopnaija',
@@ -71,7 +71,7 @@ export const PROJECTS = [
     description: 'A modern Nigerian e-commerce platform with real-time inventory, payment integration, and multi-vendor support.',
     image: '/projects/ecommerce.png',
     category: ['Fullstack', 'Frontend'],
-    link: '#',
+    link: 'https://shopnaija.com',
   },
 ];
 
